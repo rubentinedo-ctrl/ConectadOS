@@ -1,0 +1,3 @@
+import {Store} from '../lib/server/store.mjs';import {backupReport} from '../lib/server/backup-settings.mjs';import {runExternalBackup} from '../lib/server/external-backup.mjs';import path from 'node:path';import {fileURLToPath} from 'node:url';
+const root=process.env.CONECTADOS_ROOT||fileURLToPath(new URL('../',import.meta.url));let db;
+try{if(!path.isAbsolute(root))throw Error();db=new Store(root);const result=await runExternalBackup(db,{expectedRevision:backupReport(db).revision});console.log(JSON.stringify(result))}catch{console.error('No se completó la copia R2. Revisa el resultado privado conservado, configuración, clave y permisos.');process.exitCode=1}finally{db?.close()}

@@ -1,0 +1,11 @@
+import Link from 'next/link';
+export const metadata={title:'Protección por recurso · ConectadOS'};
+export default function ResourceBackupsGuide(){return <main className="landing"><section className="panel" style={{maxWidth:880,margin:'40px auto',padding:28}}>
+ <Link href="/#resource-backups">← Volver a las bases</Link><h1>Entender la protección de cada base</h1>
+ <p>Un servicio puede estar encendido y no tener una copia recuperable. ConectadOS muestra estas comprobaciones por separado.</p>
+ <h2>Qué significa cada paso</h2><ul><li><strong>Copia local:</strong> fecha de los datos y tamaño según el trabajo de respaldo.</li><li><strong>Restauración local registrada:</strong> el trabajador informa que restauró esa copia en un entorno aislado. El panel conserva ese comprobante y su fecha.</li><li><strong>Lote en Drive:</strong> el componente aparece en el lote diario cuyo archivo remoto se verificó. Esto no demuestra la recuperación externa de esa versión individual.</li></ul>
+ <p>«Sin evidencia» significa que falta conectar un informe a esta base. No afirma que sus datos estén perdidos. «Lectura vencida» significa que el panel dejó de recibir información reciente. Una copia de más de 25 horas necesita revisión aunque el lector siga activo.</p>
+ <h2>Conectar tus propios trabajos de respaldo</h2><p>Pide a tu agente: «Conecta los informes de mis respaldos a ConectadOS, sin crear copias nuevas ni modificar mis trabajos». El agente debe revisar el origen, los identificadores exactos de cada base, el formato de sus comprobantes y el acceso de solo lectura. Encontrará el procedimiento en <code>docs/RESOURCE-BACKUPS.md</code>, dentro de la carpeta de la aplicación.</p>
+ <p>Este lector no necesita una API de IA ni acceso a tus datos, archivos de respaldo o claves de cifrado. Requiere acceso administrativo al VPS para instalar la lectura de metadatos. Los trabajadores incompatibles requieren un adaptador revisado; no se deben inventar comprobantes para completar la pantalla.</p>
+ <h2>Cuando aparezca una advertencia</h2><p>Revisa el trabajo original, su último resultado y el destino externo. Conserva las copias anteriores. El botón «Actualizar evidencia» solo lee el informe disponible; no vuelve a ejecutar respaldos ni restauraciones.</p>
+ </section></main>}

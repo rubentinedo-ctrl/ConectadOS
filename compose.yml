@@ -1,0 +1,31 @@
+services:
+  conectados:
+    build: .
+    image: ${CONECTADOS_IMAGE:-conectados:0.1.0-local}
+    environment:
+      CONECTADOS_PUBLIC_ORIGIN: ${CONECTADOS_PUBLIC_ORIGIN:?Set the exact HTTPS origin before starting}
+    expose:
+      - "3000"
+    # No host port is published. Connect a reviewed HTTPS proxy to this service.
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 45s
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:uid=1000,gid=1000,mode=1770,size=64m
+      - /app/.next/cache:uid=1000,gid=1000,mode=700,size=64m
+    volumes:
+      - conectados-data:/state/.data
+      - conectados-keys:/state/.keys
+      - conectados-backups:/state/.backups
+    cpus: 1.0
+    mem_limit: 1g
+    pids_limit: 128
+volumes:
+  conectados-data:
+  conectados-keys:
+  conectados-backups:

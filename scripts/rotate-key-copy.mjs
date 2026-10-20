@@ -1,0 +1,5 @@
+import path from 'node:path';import {rotateKeyCopy} from '../lib/server/rotate-key.mjs';
+const args=process.argv.slice(2);
+if(![3,4].includes(args.length)){console.error('Uso: node scripts/rotate-key-copy.mjs CARPETA_COPIA DESTINO_NUEVO ARCHIVO_VAULT_KEY [ARCHIVO_BACKUP_KEY]. Si R2 está configurado, necesita también su archivo de clave externa. Las claves no se escriben en argumentos.');process.exitCode=1}else{
+ try{await rotateKeyCopy(...args.slice(0,3).map(value=>path.resolve(value)),{backupKeySource:args[3]?path.resolve(args[3]):null});console.log('Copia con clave maestra nueva verificada. Origen y clave anterior conservados; sesiones invalidadas y efectos externos pausados. Guarda la clave NUEVA por separado: las copias antiguas siguen necesitando la clave antigua. No actives el destino sin revisar el corte y las escrituras.')}catch{console.error('No se pudo preparar la copia con nueva clave. Origen conservado. Revisa copia, claves originales, permisos y destino nuevo o vacío.');process.exitCode=1}
+}

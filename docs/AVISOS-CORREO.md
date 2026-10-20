@@ -1,0 +1,15 @@
+# Avisos y correo
+
+Avisos registra cambios detectados, su fuente y su historial. Marcar como revisado registra la revisión; Diagnosticar vuelve a consultar el estado sin modificar el servicio. Ninguna de estas acciones repara ni reinicia. Una lectura vencida significa falta de evidencia actual, no una caída confirmada. Los avisos se conservan aunque su correo esté desactivado.
+
+En Ajustes → Monitores y avisos puedes elegir tipos de alerta y proveedores. Las reglas iniciales seleccionan fallos de comprobaciones web, problemas de copias y certificados próximos a caducar. Estados detenidos/degradados, consultas vencidas, renovaciones y pulso del recolector son opcionales. Las sondas, copias y proveedores necesitan estar configurados; elegir un tipo no crea esa cobertura.
+
+Valores iniciales: esperar diez minutos de una advertencia vigente y sin cambios, intervalo de una hora entre correos nuevos, mínimo veinticuatro horas para volver a avisar del mismo problema y máximo tres correos nuevos por veinticuatro horas. Puedes cambiarlos. No hay recordatorios periódicos de una advertencia sin cambios. La identidad del problema incluye la conexión y el hallazgo, por lo que desaparecer y volver o cambiar el texto no elude el plazo. El historial utilizado se conserva treinta días.
+
+El intervalo deja las otras solicitudes válidas en espera; reconocer el aviso, cambiar las reglas, pausar el canal o perder evidencia cancela las pendientes que ya no aplican. La cola caduca tras veinte horas. Un intento ya enviado puede terminar; un resultado incierto no se reenvía con otra identidad. Los reintentos conservan solicitud e idempotencia. El máximo diario cuenta solicitudes nuevas, incluidas las pruebas, y se combina con el límite técnico existente; no representa la cuota global de tu cuenta Resend ni un límite total de solicitudes HTTP de reintento.
+
+Cambiar las reglas no envía una prueba ni exige repetir la recepción cuando se conservan destinatario, remitente, contenido y acceso. Cambiar estos datos mantiene los controles anteriores. Las direcciones y los detalles de infraestructura no se amplían por guardar una regla. Por defecto el correo incluye categoría, proveedor y fecha; los nombres y detalles requieren elegir esa opción.
+
+Las reglas se revisan al preparar y antes de enviar. Se guardan aparte, ligadas a la generación y activación del canal. El indicador legado permanece apagado para que volver a código anterior no envíe ignorando los filtros. Una restauración o cambio de acceso invalida la activación; reglas e historial se conservan. No requiere cambiar el formato SQLite.
+
+El monitor externo es un vigilante alojado en Vercel, separado del VPS. Comprueba por HTTPS únicamente los destinos de su configuración. Puede avisar si el VPS deja de responder. Tres comprobaciones fallidas abren un evento y dos respuestas posteriores confirman que vuelve a responder. No inspecciona tablas ni repara aplicaciones. Su canal de correo conserva reglas, destinatario y cuota propios; cambiar el correo de inventario no modifica ese canal. La frecuencia real es la del cron instalado, no una animación de pantalla.

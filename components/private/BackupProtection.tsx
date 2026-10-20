@@ -1,0 +1,37 @@
+'use client';
+import {useEffect,useRef,useState} from 'react';
+import {Archive,ArrowRight,Check,Clock,Database,RefreshCw,ShieldCheck,TriangleAlert} from 'lucide-react';
+import {ProviderLogo} from '@/components/ProviderLogo';
+import type {BackupProtectionReport} from '@/lib/backup-protection-types';
+import './backup-protection.css';
+const names={unconfigured:'Lector sin configurar',unbound:'Vinculación por revisar',paused:'Lectura o exportador pausados',error:'Error de lectura',waiting:'Esperando informe',stale:'Estado vencido',failed:'Última ejecución con fallo',uncertain:'Resultado sin confirmar',working:'Copia en curso',pending:'Esperando copia en Drive',lagging:'Drive tiene una copia pendiente',unverified:'Sin restauración comprobada',overdue:'Copia anterior a 25 horas',verified:'Copia restaurada'};
+const receiptNames:Record<string,string>={verified:'Restaurada',preparing:'Preparando',uploading:'Enviando · sin confirmar',failed:'Fallida',uncertain:'Sin confirmar'};
+const date=(at:number|null|undefined)=>at?new Date(at).toLocaleString('es'):'Sin comprobación';
+const size=(bytes:number|null|undefined)=>bytes?new Intl.NumberFormat('es',{maximumFractionDigits:2}).format(bytes/1048576)+' MiB':'—';
+export function BackupProtection({report,privateNames,now,onChanged}:{report:BackupProtectionReport|undefined;privateNames:boolean;now:number;onChanged:(value:BackupProtectionReport)=>void}){
+ const [busy,setBusy]=useState(false),[error,setError]=useState<{message:string;attemptedAt:number|null|undefined}|null>(null),controller=useRef<AbortController|null>(null);
+ useEffect(()=>()=>controller.current?.abort(),[]);useEffect(()=>{if(privateNames)controller.current?.abort()},[privateNames]);
+ if(privateNames)return null;
+ const d=report?.drive,r=report?.r2,localError=error&&error.attemptedAt===d?.attemptedAt?error.message:'';
+ const expired=!!d?.expiresAt&&now>d.expiresAt,retained=['unconfigured','unbound','paused'].includes(d?.status??'');
+ const status=localError?'error':expired&&!retained?'stale':d?.status==='verified'&&d.lastVerified&&now-d.lastVerified.createdAt>d.copyAgeLimitMs?'overdue':d?.status;
+ const workerCurrent=!!d?.worker&&!expired&&!retained&&status!=='stale'&&status!=='error';
+ const current=status==='verified',moving=status==='working',latest=d?.lastVerified,problems=['error','failed','uncertain','lagging','overdue'].includes(status??'');
+ async function refresh(){if(busy)return;const c=new AbortController();controller.current=c;setBusy(true);setError(null);try{const response=await fetch('/api/backup-protection',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'refresh'}),signal:c.signal}),value=await response.json();if(!response.ok)throw Error(value.error);if(!c.signal.aborted)onChanged(value.backupProtection)}catch(e){if(!c.signal.aborted)setError({message:e instanceof Error?e.message:'No se pudo leer Drive.',attemptedAt:d?.attemptedAt})}finally{if(controller.current===c){controller.current=null;setBusy(false)}}}
+ return <section className={'backup-protection'+(moving?' copying':'')} id="backup-protection" aria-labelledby="backup-protection-title">
+  <header><ShieldCheck size={24}/><div><span className="protection-eyebrow">CONTINUIDAD / CONECTADOS</span><h2 id="backup-protection-title">Tu copia tiene un recorrido</h2></div><span className={'protection-state '+(current?'verified':problems?'attention':'inactive')} role="status">{current?<Check size={14}/>:problems?<TriangleAlert size={14}/>:<Clock size={14}/>} {status?names[status]:'Cargando protección'}</span></header>
+  <p>Dos destinos para el catálogo, cuenta y conexiones de ConectadOS. Cada copia se comprueba mediante descarga y restauración.</p>
+  <ol className="protection-route" aria-label="Recorrido de respaldos de ConectadOS">
+   <li><div className="protection-node"><Database size={24}/></div><strong>ConectadOS</strong><span>Origen de la copia</span><small>Las bases observadas tienen sus propios respaldos</small></li>
+   <li className="route-link" aria-hidden="true"><span/><ArrowRight size={18}/></li>
+   <li className={r?.lastVerified?'has-receipt':''}><div className="protection-node"><ProviderLogo provider="Cloudflare" size={25}/></div><strong>Cloudflare R2</strong><span>{r?.lastVerified?'Descargada y restaurada':r?.configured?'Esperando comprobación':'Sin configurar'}</span><small>{date(r?.lastVerified?.finishedAt)} · {size(r?.lastVerified?.bytes)}</small></li>
+   <li className={'route-link'+(moving?' moving':'')} aria-hidden="true"><span/><ArrowRight size={18}/></li>
+   <li className={current?'has-receipt':''}><div className="protection-node"><ProviderLogo provider="Google Drive" size={25}/></div><strong>Google Drive</strong><span>{latest?'Última copia restaurada':'Sin restauración registrada'}</span><small>{date(latest?.finishedAt)} · {size(latest?.bytes)}</small></li>
+  </ol>
+  <div className="protection-readings"><div><span>Datos de la última copia en Drive</span><strong>{date(latest?.createdAt)}</strong><small>Edad del snapshot; no del pulso</small></div><div><span>Última restauración en el VPS</span><strong>{date(latest?.finishedAt)}</strong><small>Comprueba integridad y accesos</small></div><div><span>Última actividad del exportador</span><strong>{date(d?.worker?.heartbeat)}</strong><small>{workerCurrent?<>{d?.worker?.timerActive?'Temporizador activo':'Temporizador detenido'} · {d?.worker?.serviceState==='running'?'trabajando':d?.worker?.serviceState==='idle'?'entre ciclos':'última ejecución con fallo'}</>:'Lectura anterior; actividad actual sin confirmar'}</small></div></div>
+  <div className="protection-actions"><button className="action" onClick={refresh} disabled={busy||!d?.configured||['unbound','paused'].includes(d?.status??'')}><RefreshCw size={15}/>{busy?'Leyendo informe…':'Actualizar estado'}</button><a href="/settings#external-backups"><Archive size={15}/>Configurar respaldos</a><span>{r?.enabled?'R2: una copia diaria':'R2: programación pausada'} · {r?.enabled&&r.nextDue?'Próxima: '+date(r.nextDue):'Fecha sin confirmar'}{r?.enabled&&!r.workerFresh?' · Pulso R2 sin confirmar':''}</span></div>
+  {(localError||d?.error)?<p className="protection-error" role="alert">{localError||d?.error} La copia anterior conserva su fecha.</p>:null}
+  {status==='unbound'?<p className="protection-error">Pide al agente que revise el montaje y la identidad de esta instalación. Recuperar una copia no activa el exportador original.</p>:null}
+  <details><summary>Ver recibos y alcance · {d?.totalAttempts??0} intentos registrados</summary><p>{d?.coverage??'Solo protege ConectadOS. Falta recibir el informe del exportador.'}</p><p>Una copia de más de 25 horas requiere revisión. Actualizar estado solo lee el informe; no sube archivos, reintenta trabajos ni cambia permisos.</p>{d?.history.length?<div className="protection-receipts"><table><caption>Últimos {d.history.length} intentos de Drive</caption><thead><tr><th>Snapshot</th><th>Resultado</th><th>Restauración</th><th>Tamaño</th></tr></thead><tbody>{d.history.map(item=><tr key={item.id}><td>{date(item.createdAt)}</td><td>{receiptNames[item.state]??'Sin confirmar'}</td><td>{item.restored?date(item.finishedAt):'Sin comprobación'}</td><td>{size(item.bytes)}</td></tr>)}</tbody></table></div>:<p>Todavía no hay recibos disponibles.</p>}<p>Informe del host: {date(d?.sampledAt)}. Un estado vencido conserva los recibos históricos y deja de acreditar actividad actual.</p></details>
+ </section>;
+}

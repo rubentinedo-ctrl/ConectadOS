@@ -1,0 +1,47 @@
+{
+  "name": "conectados",
+  "version": "0.1.0-rc.9",
+  "private": true,
+  "license": "MIT",
+  "description": "Panel de infraestructura autohospedado — candidato para prueba externa",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "dev": "next dev --webpack --hostname 127.0.0.1 --port 3119",
+    "build": "next build --webpack && node scripts/prepare-standalone.mjs",
+    "start": "node scripts/launch.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "test:http": "node scripts/test-http.mjs",
+    "test:docker": "node scripts/test-docker.mjs",
+    "backup": "node scripts/backup.mjs",
+    "restore": "node scripts/restore.mjs",
+    "collector": "node scripts/collector.mjs",
+    "observer:backup": "node scripts/observer-export.mjs"
+  },
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.78",
+    "@ai-sdk/google": "^4.0.93",
+    "@ai-sdk/openai": "^4.0.91",
+    "@aws-sdk/client-s3": "3.1149.0",
+    "ai": "^7.0.137",
+    "google-auth-library": "^11.2.0",
+    "lucide-react": "^1.7.0",
+    "next": "16.4.0",
+    "next-themes": "^0.4.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "server-only": "0.0.1",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "simple-icons": "^16.35.0",
+    "typescript": "^5"
+  }
+}

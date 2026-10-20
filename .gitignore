@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+.data/
+*.tsbuildinfo
+.DS_Store
+
+.keys/
+
+.backups/
+
+__pycache__/

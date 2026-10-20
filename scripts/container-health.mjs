@@ -1,0 +1,1 @@
+try{const r=await fetch('http://127.0.0.1:3000/api/health',{signal:AbortSignal.timeout(3000),redirect:'error'});if(r.status!==200||(await r.json()).status!=='ok')process.exitCode=1}catch{process.exitCode=1}

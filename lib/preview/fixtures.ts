@@ -1,0 +1,162 @@
+/** Synthetic design examples, never provider observations or billing records. */
+export type Health = "Operativo" | "Degradado" | "Sin comprobar" | "Dato vencido";
+export type Resource = {
+  id: string;
+  name: string;
+  kind: string;
+  provider: string;
+  apps: string[];
+  health: Health;
+  latency: string;
+  checked: string;
+  region: string;
+  note: string;
+  backup: string;
+};
+export const resources: Resource[] = [
+  {
+    id: "vps",
+    name: "VPS principal",
+    kind: "Servidor",
+    provider: "Hostinger",
+    apps: ["Atlas", "Nova", "Clinic Demo", "Files Demo", "Support Demo"],
+    health: "Operativo",
+    latency: "42 ms",
+    checked: "Hace 30 s",
+    region: "Boston · KVM 4",
+    note: "Ejemplo de capacidad: cuatro CPU, 16 GB de memoria y 200 GB de disco. Las métricas de esta pantalla son simuladas.",
+    backup: "Configuración · copia de ejemplo verificada",
+  },
+  {
+    id: "fin-web",
+    name: "Nova · Web",
+    kind: "Aplicación",
+    provider: "Vercel",
+    apps: ["Nova"],
+    health: "Operativo",
+    latency: "184 ms",
+    checked: "Hace 30 s",
+    region: "Washington · Producción",
+    note: "Despliegue de ejemplo listo. La comprobación HTTP simulada devuelve 200.",
+    backup: "Código versionado · no sustituye copia de base",
+  },
+  {
+    id: "fin-db",
+    name: "Nova · Base",
+    kind: "Base de datos",
+    provider: "Coolify",
+    apps: ["Nova"],
+    health: "Operativo",
+    latency: "28 ms",
+    checked: "Hace 30 s",
+    region: "VPS principal · PostgreSQL",
+    note: "Lectura autenticada de ejemplo correcta. Auth y almacenamiento se revisarían por separado.",
+    backup: "Copia, envío externo y restauración de ejemplo correctos",
+  },
+  {
+    id: "hub-web",
+    name: "Atlas · Web",
+    kind: "Aplicación",
+    provider: "Vercel",
+    apps: ["Atlas"],
+    health: "Operativo",
+    latency: "156 ms",
+    checked: "Hace 30 s",
+    region: "Washington · Producción",
+    note: "Despliegue de ejemplo listo. El acceso depende de la base del Atlas alojada en el VPS.",
+    backup: "Código versionado · configuración por separado",
+  },
+  {
+    id: "hub-db",
+    name: "Atlas · Base",
+    kind: "Base de datos",
+    provider: "Coolify",
+    apps: ["Atlas"],
+    health: "Operativo",
+    latency: "24 ms",
+    checked: "Hace 30 s",
+    region: "VPS principal · PostgreSQL",
+    note: "Ejemplo de consulta mínima correcta. No se leen datos personales ni financieros para monitorizar.",
+    backup: "Copia de ejemplo · restauración verificada",
+  },
+  {
+    id: "dentia",
+    name: "Clinic Demo · API",
+    kind: "Servicio",
+    provider: "Coolify",
+    apps: ["Clinic Demo"],
+    health: "Degradado",
+    latency: "1.240 ms",
+    checked: "Hace 30 s",
+    region: "VPS principal · API",
+    note: "Incidente ficticio para revisar el diseño: tres comprobaciones lentas. No representa un problema real de Clinic Demo.",
+    backup: "Copia de ejemplo correcta · no relacionada con la latencia",
+  },
+  {
+    id: "dns",
+    name: "example.com · DNS",
+    kind: "Dominio",
+    provider: "Cloudflare",
+    apps: ["Atlas", "Nova", "Clinic Demo", "Files Demo"],
+    health: "Operativo",
+    latency: "19 ms",
+    checked: "Hace 1 min",
+    region: "Red global · DNS",
+    note: "Resolución DNS de ejemplo correcta. La respuesta DNS no demuestra que el inicio de sesión funcione.",
+    backup: "Exportación de zona · ejemplo",
+  },
+  {
+    id: "drive",
+    name: "Respaldos VPS",
+    kind: "Respaldo",
+    provider: "Google Drive",
+    apps: ["Atlas", "Nova", "Clinic Demo", "Files Demo", "Support Demo"],
+    health: "Dato vencido",
+    latency: "—",
+    checked: "Hace 27 h",
+    region: "Workspace · Archivo cifrado",
+    note: "Escenario ficticio: faltaría la confirmación del envío más reciente. Una observación antigua no se muestra como saludable.",
+    backup: "Última restauración de ejemplo: ayer · envío actual pendiente",
+  },
+  {
+    id: "cloud",
+    name: "Archive Demo · Base",
+    kind: "Base de datos",
+    provider: "Supabase",
+    apps: ["Archive Demo"],
+    health: "Sin comprobar",
+    latency: "—",
+    checked: "Sin lectura",
+    region: "Cloud · Conexión pendiente",
+    note: "Este prototipo no tiene acceso a proveedores. Aquí se mostraría la base que permanezca en Supabase Cloud.",
+    backup: "Pendiente de consultar",
+  },
+  {
+    id: "mail",
+    name: "Correo transaccional",
+    kind: "Servicio",
+    provider: "Resend",
+    apps: ["Atlas", "Nova", "Clinic Demo"],
+    health: "Sin comprobar",
+    latency: "—",
+    checked: "Sin lectura",
+    region: "API · Conexión pendiente",
+    note: "La integración futura consultaría errores y entregas sin enviar mensajes desde el panel.",
+    backup: "No aplica a este recurso",
+  },
+];
+export const providers = [
+  "Vercel",
+  "Cloudflare",
+  "Coolify",
+  "Hostinger",
+  "Supabase",
+  "Google Drive",
+  "Resend",
+];
+export const statusClass: Record<Health, string> = {
+  Operativo: "good",
+  Degradado: "warn",
+  "Sin comprobar": "unknown",
+  "Dato vencido": "stale",
+};

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "packagePath": "node_modules/data-uri-to-buffer",
+      "name": "data-uri-to-buffer",
+      "version": "4.0.1",
+      "packageJsonSha256": "ad4f90a737ab5d8af4dad265e9218456e3779ca5beb70df38dd5feecf80121dd",
+      "kind": "license",
+      "sourceURL": "https://raw.githubusercontent.com/TooTallNate/node-data-uri-to-buffer/85cd8c854aefbf1bb636789d80364cfac8ea1583/README.md",
+      "revision": "85cd8c854aefbf1bb636789d80364cfac8ea1583",
+      "registryIntegrityVerified": true,
+      "artifact": "docs/licenses/third-party/aa7c09d3ff3c4302fb26fb696cd1b2e24dcc71846c80406d037b021342e78e0e.txt",
+      "sha256": "aa7c09d3ff3c4302fb26fb696cd1b2e24dcc71846c80406d037b021342e78e0e",
+      "bytes": 1125
+    },
+    {
+      "packagePath": "node_modules/@img/sharp-libvips-darwin-arm64",
+      "name": "@img/sharp-libvips-darwin-arm64",
+      "version": "1.3.4",
+      "packageJsonSha256": "394ecfe4e823ebf6ddc9f9b7155046aad1f0492300920323ddfb84cae85dbac0",
+      "kind": "supplier-notice",
+      "sourceURL": "https://raw.githubusercontent.com/lovell/sharp-libvips/ebb95f8add54eee8bed840e3fb587e4cbec857d7/THIRD-PARTY-NOTICES.md",
+      "revision": "ebb95f8add54eee8bed840e3fb587e4cbec857d7",
+      "registryIntegrityVerified": true,
+      "artifact": "docs/licenses/third-party/6f0d5086e3bcbee12bcdacf5878b31d1104002aeecaeb241d3fff466108082fe.txt",
+      "sha256": "6f0d5086e3bcbee12bcdacf5878b31d1104002aeecaeb241d3fff466108082fe",
+      "bytes": 4230
+    }
+  ]
+}

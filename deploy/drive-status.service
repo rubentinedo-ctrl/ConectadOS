@@ -1,0 +1,29 @@
+[Unit]
+Description=ConectadOS private Drive receipt publisher
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+EnvironmentFile=/etc/conectados-drive-export/status.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /opt/conectados-drive-export/drive-status.py --config /etc/conectados-drive-export/config.json --identity-file ${CONECTADOS_DRIVE_WORKER_IDENTITY_FILE} --output /data/conectados-drive-status
+UMask=0077
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX
+IPAddressDeny=any
+CapabilityBoundingSet=CAP_CHOWN CAP_DAC_READ_SEARCH
+ReadWritePaths=/data/conectados-drive-status
+InaccessiblePaths=-/run/docker.sock -/etc/tinergia-backups
+MemoryMax=96M
+CPUQuota=5%
+TimeoutStartSec=30
+Restart=no
