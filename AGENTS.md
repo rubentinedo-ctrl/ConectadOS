@@ -16,7 +16,7 @@ Lee docs/OPERATIONS.md antes de actualizaciones, recuperación, almacenamiento e
 
 Antes de editar rutas/servidor, lee la documentación instalada en node_modules/next/dist/docs. Verifica typecheck, test y build según el cambio. Las pruebas usan fixtures aisladas; no hacen operaciones sobre proveedores reales por defecto. No presentes una compilación como validación de conexiones o calidad de IA. Para redistribuir binarios revisa docs/DEPENDENCIES.md; no cambies publicationReady por contar avisos.
 
-Esta entrega es RC11, cerrada a funciones nuevas. No publiques otra release por completar una instalación; el repositorio y esta candidata ya son públicos. Registra cada prueba externa por separado. La demostración no requiere APIs; los proveedores, Google y la IA utilizan la configuración propia que el operador decida añadir.
+Esta entrega es RC12, cerrada a funciones nuevas. No publiques otra release por completar una instalación; el repositorio y esta candidata ya son públicos. Registra cada prueba externa por separado. La demostración no requiere APIs; los proveedores, Google y la IA utilizan la configuración propia que el operador decida añadir.
 
 ## Alta y conexiones de esta entrega
 

@@ -1,10 +1,12 @@
+import {useId} from 'react';
 import { ExternalLink, BookOpen, KeyRound } from 'lucide-react';
 import type { ProviderGuide } from '@/lib/provider-guides';
 
 export function ProviderHelp({provider, guide}: {provider: string; guide: ProviderGuide}) {
+  const title=useId();
   const inventory=['Coolify','Vercel','Cloudflare','Supabase','Hostinger'].includes(provider),available=inventory||provider==='Resend';
-  return <aside className="provider-help" aria-labelledby="provider-help-title">
-    <div className="help-heading"><KeyRound size={18}/><h3 id="provider-help-title">Cómo preparar {provider}</h3><span>{available?'Configuración disponible':'Implementación pendiente'}</span></div>
+  return <aside className="provider-help" aria-labelledby={title}>
+    <div className="help-heading"><KeyRound size={18}/><h3 id={title}>Cómo preparar {provider}</h3><span>{available?'Configuración disponible':'Implementación pendiente'}</span></div>
     <p>{guide.purpose}</p>
     <p><strong>Dato necesario:</strong> {guide.credential}.</p>
     <div className="help-links">

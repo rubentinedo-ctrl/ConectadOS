@@ -1,6 +1,6 @@
 # Instalar desde Windows con WSL2
 
-ConectadOS 0.1 RC11 usa Node dentro de Ubuntu, mediante WSL2. No incluye un instalador .exe ni una instalación nativa de Windows. El recorrido Linux está probado; la prueba en tu equipo Windows forma parte de la aceptación externa de esta entrega.
+ConectadOS 0.1 RC12 usa Node dentro de Ubuntu, mediante WSL2. No incluye un instalador .exe ni una instalación nativa de Windows. El recorrido Linux está probado; la prueba en tu equipo Windows forma parte de la aceptación externa de esta entrega.
 
 ## 1. Preparar Ubuntu
 

@@ -1,10 +1,10 @@
-# Prueba externa de ConectadOS 0.1 RC11
+# Prueba externa de ConectadOS 0.1 RC12
 
 Haz esta prueba en una carpeta nueva, con el ZIP de entrega. Usa tu propia cuenta y tus accesos. No copies `.data`, `.keys`, `.backups` ni configuraciones de otra instalación. La prueba Windows/WSL2 requiere tu equipo; el ensayo Linux del autor no la sustituye.
 
 ## Un resultado por equipo
 
-Usa el mismo ZIP RC11 en Windows y en la otra Mac, pero carpetas, cuentas y archivos de resultado independientes. En Mac sigue [MACOS.md](MACOS.md). Anota arquitectura (Apple Silicon/Intel), sistema, Node y navegador. No copies claves ni bases entre equipos.
+Usa el mismo ZIP RC12 en Windows y en la otra Mac, pero carpetas, cuentas y archivos de resultado independientes. En Mac sigue [MACOS.md](MACOS.md). Anota arquitectura (Apple Silicon/Intel), sistema, Node y navegador. No copies claves ni bases entre equipos.
 
 ## Primera prueba sin APIs
 
@@ -32,7 +32,7 @@ Google, IA, voz y respaldo externo se prueban solo si los configuras. Google par
 
 Copia estos campos sin secretos ni información de tus recursos:
 
-- Paquete: ConectadOS 0.1 RC11.
+- Paquete: ConectadOS 0.1 RC12.
 - Sistema, arquitectura y versión de WSL/Ubuntu, si aplica:
 - Node y navegador:
 - Etapa alcanzada y último paso correcto:

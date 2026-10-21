@@ -1,18 +1,19 @@
-# ConectadOS RC11 · validación de la mejora de dominios
+# ConectadOS RC12 · validación del asistente de bienvenida
 
-21 de octubre de 2026. RC11 conserva el instalador de RC10 y añade accesos HTTPS manuales a nombres de Cloudflare. No incorpora nuevos proveedores ni sondas automáticas; abrir un enlace no cambia la salud.
+21 de octubre de 2026. RC12 añade el asistente opcional de conexión inicial y conserva los cinco conectores de RC11. El instalador y las dependencias no cambian.
 
-## Comprobado en esta revisión
+## Comprobado
 
-- TypeScript/build correctos; 366 pruebas Node y batería HTTP aislada correctas.
-- Normalización y rechazo de esquemas, rutas, credenciales, IP, nombres locales, comodines, etiquetas de verificación y punycode inválido. Solo zonas y registros A/AAAA/CNAME aptos.
-- Mapa y explorador revisados en Chrome con datos ficticios: HTTPS, pestaña nueva, noopener/noreferrer/no-referrer; cero enlaces al ocultar nombres; A/CNAME con enlace y TXT sin enlace. Sin errores/advertencias observados de consola. No se abrieron dominios externos para probarlo.
-- Actualización RC10 → RC11 ensayada en macOS arm64, con cuenta/proyecto/credencial ficticios: mismo acceso, configuración, puerto y clave de cifrado, credencial descifrable y proyecto conservados. No fue necesario crear otra cuenta. Sin conexiones reales, IA, correo ni producción.
+- 371 pruebas Node correctas, incluidas selección, pasos, posponer, conflictos entre pestañas, rechazo de campos de secretos y finalización condicionada a lecturas recientes.
+- TypeScript, build y batería HTTP aislada correctos: acceso y origen protegidos, progreso persistente después de reiniciar, sin consultas externas.
+- Progreso conservado al reabrir SQLite y recuperar una copia local del estado. Cambiar preferencias no lo borra. Tabla adicional compatible con el formato de estado actual; no contiene credenciales.
+- Recorrido en Chrome con cuenta ficticia: apertura automática, selección de plataformas, enlaces oficiales, formularios, resumen pendiente, posponer y retomar tras recargar/reiniciar, y apertura desde Ajustes. El resumen no permite declarar completas conexiones que no se consultaron.
+- Formularios existentes reutilizados. Tokens en la bóveda cifrada; campos sin guardar no se conservan como borradores. No se crean conectores nuevos ni se activa observación, IA, correo o respaldo desde el asistente.
 
-## Resultados conservados y límites
+## Límites de estas pruebas
 
-El instalador no cambió. RC10 pasó instalación del ZIP exacto en Mac arm64 y Ubuntu amd64 aislado, siete pruebas Python y apertura TextEdit con fixture. No se repitieron restauraciones ni ensayos Linux de instalación por este cambio de interfaz. No se atribuyen esas pruebas a una nueva prueba Windows.
+Las pruebas usan datos ficticios y no sustituyen una conexión nueva a cada cuenta del usuario. No se realizaron llamadas reales a proveedores, envíos de correo ni consumo de IA. No se modificó el VPS ni su aplicación instalada.
 
-El propietario confirma que ya instaló la app en Mac; falta Windows/WSL2. Cada equipo debe comprobar su versión y conservar datos al actualizar. El prompt está en CONTINUAR-PRUEBAS.md. El paquete incluye guía HTML TinergIA y diferencia los cinco inventarios API de fichas manuales.
+El instalador no cambió desde RC10: se conservan sus ensayos de instalación del ZIP en Mac arm64 y Ubuntu amd64. RC11 conservó cuenta/proyecto/credencial cifrada en actualización desde RC10. Windows/WSL2 sigue pendiente de la prueba externa del usuario; no se ofrece ejecutable Windows nativo. El propietario ya confirmó una instalación Mac, pero debe actualizar su versión para ver el asistente.
 
-La release conserva manifiesto, ZIP y SHA-256. El acta adjunta en https://github.com/rubentinedo-ctrl/ConectadOS/releases/tag/v0.1.0-rc.11 registra la comprobación del paquete y de descarga. RC9/RC10 permanecen disponibles. Código propio MIT; accesos y datos de cada instalación quedan fuera del paquete.
+La guía HTML con logo incluye el nuevo recorrido y cómo continuar después. El paquete público excluye estado, credenciales, dependencias instaladas e historia privada. La entrega conserva manifiesto y archivo SHA-256. RC9, RC10 y RC11 permanecen disponibles.

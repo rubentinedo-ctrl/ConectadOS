@@ -1,4 +1,6 @@
-# Conexiones de ConectadOS 0.1 RC11
+# Conexiones de ConectadOS 0.1 RC12
+
+El asistente de bienvenida permite elegir proveedores, seguir sus enlaces de tokens y posponer conservando el progreso. Se retoma en Dashboard o Ajustes → Proveedores. [Recorrido completo](WELCOME.md).
 
 Cada usuario conecta sus propias cuentas desde `/settings` → Proveedores. La guía visual completa está en `GUIA-INSTALACION.html` en la raíz; se abre con doble clic y no pide claves.
 

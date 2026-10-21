@@ -2,6 +2,7 @@
 import {useEffect,useState,type FormEvent} from 'react';
 import {Network,LockKeyhole,LogOut,RefreshCw} from 'lucide-react';
 import {providers} from '@/lib/preview/fixtures';
+import {WelcomeWizard} from './WelcomeWizard';
 import {ConnectionCatalog} from '@/components/ConnectionCatalog';
 import {providerGuides} from '@/lib/provider-guides';
 import {Assistant} from './Assistant';
@@ -32,6 +33,7 @@ function MonitoringSettings(){
 const labels:Record<string,string>={billing_entry_created:'Gasto o renovación registrado',billing_entry_changed:'Gasto o renovación actualizado',billing_entry_archived:'Gasto archivado',billing_entry_restored:'Gasto recuperado',provider_configured:'Conexión de proveedor guardada',provider_refreshed:'Inventario de proveedor consultado',collector_enabled:'Observación automática activada',collector_disabled:'Observación automática pausada',coolify_configured:'Conexión Coolify guardada',coolify_refreshed:'Inventario Coolify consultado',coolify_failed:'Consulta Coolify fallida',google_configured:'Cliente de Google guardado',google_linked:'Cuenta Google vinculada',google_login:'Acceso con Google correcto',google_denied:'Cuenta Google no autorizada',google_unlinked:'Cuenta Google desvinculada',owner_created:'Cuenta administradora creada',settings_saved:'Preferencias guardadas',credential_saved:'Credencial guardada',credential_deleted:'Credencial retirada',login_success:'Inicio de sesión correcto',login_failed:'Intento de acceso fallido',logout:'Sesión cerrada'};
 export function PrivateConsole(){
  const [tab,setTab]=useState<SettingsTab>('providers');
+ const [connectionVersion,setConnectionVersion]=useState(0);
  useEffect(()=>{const update=()=>setTab(settingsTab(window.location.hash));update();window.addEventListener('hashchange',update);return()=>window.removeEventListener('hashchange',update)},[]);
  function selectTab(next:SettingsTab){setTab(next);setMessage('');window.history.replaceState(null,'','#'+settingsTabs[next].anchor)}
  const [provider,setProvider]=useState(providers[0]);
@@ -49,7 +51,7 @@ export function PrivateConsole(){
  {tab==='account'&&<><GoogleSettings/><AccountSecurity/></>}
  {tab==='backups'&&<BackupSettings/>}
  {tab==='monitoring'&&<MonitoringSettings/>}
- {tab==='providers'&&<><ConnectionCatalog/><CoolifyInventory/><ProviderConnections/>
+ {tab==='providers'&&<><WelcomeWizard onChanged={()=>{setConnectionVersion(v=>v+1);void load()}}/><ConnectionCatalog/><CoolifyInventory key={'coolify-'+connectionVersion}/><ProviderConnections key={'providers-'+connectionVersion}/>
  <section><h2><LockKeyhole size={20}/> Guías y accesos guardados</h2>
  <p className="sub">Los cinco conectores de inventario se configuran arriba. Aquí puedes consultar sus guías; Resend sirve para correo y Drive requiere su instalador independiente. Guardar una clave en la bóveda no crea un conector nuevo.</p>
  <form className="credential-form" onSubmit={add}>

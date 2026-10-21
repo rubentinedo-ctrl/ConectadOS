@@ -22,6 +22,8 @@ async function stop(){if(child&&child.exitCode===null){const ended=once(child,'e
 async function post(route,value,cookie='',origin=base){return fetch(base+route,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,Cookie:cookie},body:JSON.stringify(value)})}
 try{
  await start();
+ assert.equal((await fetch(base+'/api/welcome')).status,401);
+ assert.equal((await post('/api/welcome',{action:'defer',revision:'initial'})).status,401);
  assert.equal((await fetch(base+'/api/settings')).status,401);
  assert.equal((await fetch(base+'/api/platforms')).status,401);
  assert.equal((await fetch(base+'/api/email-recovery')).status,401);
@@ -79,6 +81,13 @@ try{
  const token=await readFile(path.join(root,'.keys/setup-token'),'utf8');const password=randomBytes(24).toString('hex');
  const setupPage=await(await fetch(base+'/access')).text();assert.match(setupPage,/npm run setup:code/);assert.match(setupPage,/Plataformas compatibles/);assert.match(setupPage,/Netlify/);assert.equal(setupPage.includes(token.trim()),false);
  const created=await post('/api/account',{action:'create',token,username:'test-owner',password});assert.equal(created.status,200,created.status===200?'':await created.clone().text());const setCookie=created.headers.get('set-cookie');assert.match(setCookie,/HttpOnly/i);assert.match(setCookie,/SameSite=Strict/i);const cookie=setCookie.split(';')[0];assert.equal(cookie.split('=')[0],cookieNames(root).session);
+ const welcomeInitial=await(await fetch(base+'/api/welcome',{headers:{Cookie:cookie}})).json();assert.equal(welcomeInitial.autoOpen,true);
+ assert.equal((await post('/api/welcome',{action:'defer',revision:'initial'},cookie,'https://other.example')).status,403);
+ assert.equal((await post('/api/welcome',{action:'select',revision:'initial',selected:['Vercel'],token:'NEVER_PERSIST'},cookie)).status,400);
+ const welcomeSelected=await(await post('/api/welcome',{action:'select',revision:'initial',selected:['Vercel']},cookie)).json();
+ assert.equal((await post('/api/welcome',{action:'defer',revision:'initial'},cookie)).status,409);
+ const welcomeStep=await(await post('/api/welcome',{action:'navigate',revision:welcomeSelected.progress.revision,step:'connect',provider:'Vercel'},cookie)).json();
+ const welcomeDeferred=await(await post('/api/welcome',{action:'defer',revision:welcomeStep.progress.revision},cookie)).json();assert.equal(welcomeDeferred.progress.status,'deferred');
  const policy=await fetch(base+'/api/realtime-voice',{headers:{Cookie:cookie}});assert.equal(policy.status,200);const initial=(await policy.json()).realtime;assert.equal(initial.seconds,120);assert.equal((await post('/api/realtime-voice',{action:'configure',...initial,seconds:240,dailySessions:4,outputTokens:2048,costConsent:true},cookie)).status,200);assert.equal((await post('/api/realtime-voice',{action:'configure',...initial,costConsent:true},cookie)).status,409);const retention=await post('/api/backups',{action:'retention-preview',days:30,keepVerified:3},cookie);assert.equal(retention.status,200);assert.equal((await retention.json()).retention.previewOnly,true);
  const recoveryStatus=await fetch(base+'/api/email-recovery',{headers:{Cookie:cookie}});assert.equal(recoveryStatus.status,200);assert.equal((await recoveryStatus.json()).recovery.enabled,false);
  assert.equal((await post('/api/email-recovery',{action:'begin',password:'wrong',recipient:'owner@example.com',confirm:true},cookie)).status,401);
@@ -260,6 +269,7 @@ try{
  assert.equal((await post('/api/google',{action:'complete',nonce:googleFlow.nonce,credential:'invalid'},cookie+'; '+browserCookie)).status,403);
  assert.equal((await post('/api/google',{action:'complete',nonce:googleFlow.nonce,credential:'invalid'},cookie+'; '+browserCookie)).status,403);
  await stop();await start();
+ assert.deepEqual((await(await fetch(base+'/api/welcome',{headers:{Cookie:cookie}})).json()).progress,welcomeDeferred.progress);
  assert.equal((await(await fetch(base+'/api/voice',{headers:{Cookie:cookie}})).json()).voice.config.hasKey,true);const persisted=await fetch(base+'/api/settings',{headers:{Cookie:cookie}});assert.equal(persisted.status,200);const data=await persisted.json();assert.deepEqual(data.settings.providers,['Coolify']);assert.ok(data.credentials.some(row=>row.provider==='Coolify'));assert.equal(data.credentials.length,5);assert.equal(JSON.stringify(data).includes(secret),false);
  const restoredOrganization=await(await fetch(base+'/api/organization',{headers:{Cookie:cookie}})).json();assert.equal(restoredOrganization.organization.assignments[0].ref,topologyApp.ref);assert.deepEqual(restoredOrganization.organization.assignments[0].tags,['production']);const latestProject=restoredOrganization.organization.projects.find(p=>p.id===organizationProject.id);
  assert.equal((await post('/api/organization',{action:'remove-project',id:latestProject.id,revision:latestProject.revision},cookie)).status,200);const ungrouped=await(await fetch(base+'/api/organization',{headers:{Cookie:cookie}})).json();assert.equal(ungrouped.organization.assignments[0].projectId,null);assert.deepEqual(ungrouped.organization.assignments[0].tags,['production']);

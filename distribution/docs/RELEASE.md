@@ -1,8 +1,10 @@
-# ConectadOS 0.1 RC11
+# ConectadOS 0.1 RC12
 
 Entrega de fuentes para prueba externa. El alcance de esta versión queda cerrado; la aceptación final y el resultado Windows/WSL2 se confirman después de la prueba del propietario; el repositorio es público para facilitarla.
 
-## Actualización RC11 · 21 de octubre de 2026
+## Actualización RC12 · 21 de octubre de 2026
+
+Asistente opcional de bienvenida después del alta: selección de los cinco proveedores, enlaces de tokens, formularios existentes y prueba explícita. Conserva el paso y la selección en la instalación, permite posponer y retomar desde Dashboard/Ajustes. No duplica claves, no activa consultas automáticas ni nuevos proveedores. Las mejoras siguientes provienen de RC11.
 
 Accesos manuales HTTPS a dominios de Cloudflare en mapa y explorador; ocultos en presentación, sin sondas ni cambios de estado. Enlaces directos a tokens de Supabase en su guía. Documento para continuar las pruebas de Mac sin repetir el alta. Sin nuevos proveedores ni cambios de infraestructura. Las mejoras de instalación siguientes provienen de RC10.
 
@@ -32,6 +34,6 @@ Estas mejoras no bloquean la prueba y entrega de 0.1.
 
 ## Alcance comprobado y costos
 
-Los resultados del ZIP RC11 exacto se detallan en [VALIDATION.md](VALIDATION.md). Los ensayos anteriores en macOS arm64 y Ubuntu amd64 no sustituyen la prueba externa de este candidato. Voz real con interrupción aceptada en el entorno del operador. Instalador Drive real en Ubuntu con cliente propio drive.file, copia nueva programada, recuperación en otro equipo y repetición sin duplicados. La ejecución Windows/WSL2 queda pendiente de la prueba externa; no se ofrece ejecutable nativo Windows. Otros modelos comerciales conservan sus pruebas específicas; no se atribuye a todos una prueba hecha con OpenAI.
+Los resultados del ZIP RC12 exacto se detallan en [VALIDATION.md](VALIDATION.md). Los ensayos anteriores en macOS arm64 y Ubuntu amd64 no sustituyen la prueba externa de este candidato. Voz real con interrupción aceptada en el entorno del operador. Instalador Drive real en Ubuntu con cliente propio drive.file, copia nueva programada, recuperación en otro equipo y repetición sin duplicados. La ejecución Windows/WSL2 queda pendiente de la prueba externa; no se ofrece ejecutable nativo Windows. Otros modelos comerciales conservan sus pruebas específicas; no se atribuye a todos una prueba hecha con OpenAI.
 
 Código propio MIT. El paquete no incluye datos, credenciales, dependencias instaladas ni imágenes Docker. Hosting, almacenamiento, correo y modelos pueden tener costos propios. Google, proveedores y API de IA se configuran en cada instalación. La recuperación por correo es opcional y se activa después de comprobar recepción; existe recuperación offline documentada. Revisa DEPENDENCIES.md antes de redistribuir binarios.

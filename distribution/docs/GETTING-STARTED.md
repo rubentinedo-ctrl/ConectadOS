@@ -18,7 +18,7 @@ Usa Ubuntu en WSL2 y ejecuta Node/npm dentro de Linux. Consulta [WINDOWS.md](WIN
 
 ## Otra Mac
 
-Sigue [MACOS.md](MACOS.md), anota Apple Silicon o Intel y empieza en una carpeta nueva con el mismo ZIP RC11 que usarás en Windows. No se trasladan datos ni claves de la instalación del autor.
+Sigue [MACOS.md](MACOS.md), anota Apple Silicon o Intel y empieza en una carpeta nueva con el mismo ZIP RC12 que usarás en Windows. No se trasladan datos ni claves de la instalación del autor.
 
 ## Con un agente
 
@@ -58,7 +58,7 @@ Antes de actualizar, conserva una copia y sus claves fuera del equipo. No borres
 
 Sigue [deploy/README.md](../deploy/README.md). Usa un dominio HTTPS, proxy revisado y volúmenes independientes. El puerto 3000 es interno y no se publica directamente. La cuenta y los accesos se configuran después del despliegue. No transfieras una instalación ajena ni incluyas credenciales en una imagen o repositorio.
 
-La publicación del repositorio y el paquete público se anuncia solo después de validar su contenido, licencias y capacidades. Descarga pública: https://github.com/rubentinedo-ctrl/ConectadOS/releases/tag/v0.1.0-rc.11.
+La publicación del repositorio y el paquete público se anuncia solo después de validar su contenido, licencias y capacidades. Descarga pública: https://github.com/rubentinedo-ctrl/ConectadOS/releases/tag/v0.1.0-rc.12.
 
 ## Prueba y documentación de la entrega
 
