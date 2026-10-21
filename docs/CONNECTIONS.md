@@ -1,4 +1,4 @@
-# Conexiones de ConectadOS 0.1 RC10
+# Conexiones de ConectadOS 0.1 RC11
 
 Cada usuario conecta sus propias cuentas desde `/settings` → Proveedores. La guía visual completa está en `GUIA-INSTALACION.html` en la raíz; se abre con doble clic y no pide claves.
 
@@ -46,3 +46,7 @@ La observación automática se activa por separado. Aproximadamente: Coolify/Ver
 - [Supabase: tokens personales](https://supabase.com/docs/guides/platform/personal-access-tokens).
 
 Guías oficiales revisadas el 20 de octubre de 2026; las etiquetas de cada panel pueden variar. Las capacidades de ConectadOS dependen de los conectores incluidos, no de todo lo que permita la API del proveedor.
+
+## Abrir una web desde Cloudflare
+
+Selecciona un dominio en el mapa o en Infraestructura → Dominios → Cloudflare. Los nombres aptos muestran un enlace HTTPS que abre otra pestaña. En los registros se ofrece solo para A/AAAA/CNAME con nombre válido; no para MX/TXT/NS, comodines o nombres de verificación. Ocultar nombres también oculta los enlaces. No se usa la IP o destino del registro ni se cambia su salud. Que exista DNS no garantiza que haya una web.

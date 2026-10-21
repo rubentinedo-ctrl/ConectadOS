@@ -14,6 +14,6 @@ export function ProviderHelp({provider, guide}: {provider: string; guide: Provid
     <ol>{guide.steps.map(step=><li key={step}>{step}</li>)}</ol>
     <p className="help-permissions"><strong>Permisos:</strong> {guide.permissions}</p>
     <p>{guide.note}</p>
-    <p className="help-status">{inventory?'El conector de inventario está disponible. Configura el token y su alcance en la sección indicada y consulta para comprobar el acceso. Guardarlo por sí solo no verifica la conexión.':provider==='Resend'?'Guarda la clave de envío y prepara Avisos por correo en el panel de infraestructura. El canal necesita una prueba y tu activación explícita para enviar avisos.':'La autorización de Drive todavía no está implementada. Aquí no se solicita una clave manual.'}</p>
+    <p className="help-status">{inventory?'El conector de inventario está disponible. Configura el token y su alcance en la sección indicada y consulta para comprobar el acceso. Guardarlo por sí solo no verifica la conexión.':provider==='Resend'?'Guarda la clave de envío y prepara Avisos por correo en el panel de infraestructura. El canal necesita una prueba y tu activación explícita para enviar avisos.':'El asistente visual de Drive sigue pendiente. Las copias a Drive utilizan el instalador Linux documentado; aquí no se solicita una clave manual.'}</p>
   </aside>;
 }

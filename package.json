@@ -1,6 +1,6 @@
 {
   "name": "conectados",
-  "version": "0.1.0-rc.10",
+  "version": "0.1.0-rc.11",
   "private": true,
   "license": "MIT",
   "description": "Panel de infraestructura autohospedado \u2014 candidato para prueba externa",

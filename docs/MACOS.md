@@ -1,10 +1,10 @@
-# Instalar ConectadOS 0.1 RC10 en otra Mac
+# Instalar ConectadOS 0.1 RC11 en otra Mac
 
-Esta prueba debe empezar en una carpeta nueva, con el ZIP RC10 completo. No copies `.data`, `.keys`, `.backups` ni dependencias de la instalación del autor. No necesitas Docker ni APIs para empezar.
+Esta prueba debe empezar en una carpeta nueva, con el ZIP RC11 completo. No copies `.data`, `.keys`, `.backups` ni dependencias de la instalación del autor. No necesitas Docker ni APIs para empezar.
 
 ## Preparación
 
-1. En Acerca de esta Mac anota macOS y si el equipo usa Apple Silicon (M1/M2/M3/…) o Intel. El ensayo local de RC10 registra su arquitectura; no acredita una Mac distinta.
+1. En Acerca de esta Mac anota macOS y si el equipo usa Apple Silicon (M1/M2/M3/…) o Intel. El ensayo local de RC11 registra su arquitectura; no acredita una Mac distinta.
 2. Descarga y extrae el ZIP. Si proviene de un repositorio GitHub ya publicado, también puedes clonarlo; esta guía no inventa una dirección de repositorio.
 3. Abre `GUIA-INSTALACION.html` con doble clic. Conserva la carpeta completa.
 4. Necesitas Node.js 22 LTS con npm, como mínimo 22.16. Comprueba `node --version` y `npm --version`. Usa [la descarga oficial](https://nodejs.org/en/download) correspondiente a Apple Silicon/arm64 o Intel/x64. No uses `sudo npm`, no sustituyas un Node existente sin revisar otros proyectos.
@@ -13,7 +13,7 @@ Esta prueba debe empezar en una carpeta nueva, con el ZIP RC10 completo. No copi
 
 Abre esta carpeta en un agente con acceso a la terminal del equipo y escribe:
 
-> Instala ConectadOS RC10 de esta carpeta en esta Mac. Lee AGENTS.md, README.md y docs/MACOS.md. Comprueba macOS, arquitectura, Node y npm. Conserva instalaciones existentes. Ejecuta node scripts/install.mjs para revisar y node scripts/install.mjs --apply. Inicia con npm start y comprueba /preview, /demo, /access y que /api/settings rechace acceso sin sesión. No conectes proveedores ni IA en la primera prueba. Déjame abrir el código privado y elegir mi contraseña en el navegador, sin mostrar secretos en el chat. Entrega dirección, cómo detener/reiniciar y el resultado de docs/PRUEBA-EXTERNA.md.
+> Instala ConectadOS RC11 de esta carpeta en esta Mac. Lee AGENTS.md, README.md y docs/MACOS.md. Comprueba macOS, arquitectura, Node y npm. Conserva instalaciones existentes. Ejecuta node scripts/install.mjs para revisar y node scripts/install.mjs --apply. Inicia con npm start y comprueba /preview, /demo, /access y que /api/settings rechace acceso sin sesión. No conectes proveedores ni IA en la primera prueba. Déjame abrir el código privado y elegir mi contraseña en el navegador, sin mostrar secretos en el chat. Entrega dirección, cómo detener/reiniciar y el resultado de docs/PRUEBA-EXTERNA.md.
 
 El CLI del agente ejecuta los comandos; ConectadOS no instala ni incluye Codex o Claude Code. También puedes instalar manualmente desde Terminal en la carpeta extraída:
 

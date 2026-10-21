@@ -81,6 +81,7 @@ export const providerGuides: Record<string, ProviderGuide> = {
     ],
     permissions: 'Prefiere un token scoped de lectura. Evita Legacy con acceso completo. El conector solo consulta el listado de proyectos; los permisos efectivos del token deben revisarse en tu cuenta.',
     note: 'Este campo no pide la clave anon, service_role, secret key del proyecto ni la contraseña de PostgreSQL. Supabase instalado en tu VPS se consultará desde Coolify.',
+    portal: 'https://supabase.com/dashboard/account/tokens',
     docs: 'https://supabase.com/docs/guides/platform/personal-access-tokens',
     manual: true,
   },
