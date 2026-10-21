@@ -16,6 +16,6 @@ try{config=await readConfig(root);console.log('Configuración existente conserva
 }
 if(args.port!==null&&args.port!==config.port||args.server&&config.mode!=='server'||args.demo&&config.mode!=='demo'||args.origin&&args.origin!==config.publicOrigin){console.error('La instalación existente tiene otro puerto, modo u origen. Se conservó. Prepara una migración revisada; no se sobrescribió.');process.exit(1)}
 const db=new Store(root);const hasOwner=db.hasOwner(),configured=(db.coolifyConnection()?.hasToken?1:0)+db.providerConnections().filter(row=>row.hasToken).length;db.close();
-console.log(hasOwner?'Cuenta administradora existente conservada.':'Para crear la primera cuenta, usa el código privado de .keys/setup-token en la pantalla de acceso. No lo pegues en un chat.');
+console.log(hasOwner?'Cuenta administradora existente conservada.':'Para crear la primera cuenta, abre /access. En otra terminal, npm run setup:code abre .keys/setup-token en tu editor (Mac o WSL2). Copia el código solo en la aplicación, nunca en un chat.');
 console.log(`Preparación guardada. Ejecuta npm run doctor y después npm run build.\nPara iniciar: node scripts/launch.mjs\nDirección: ${installationOrigin(config)}\n${configured?`${configured} accesos conservados; su vigencia se comprueba en cada conector.`:'La demostración no necesita claves; prepara conexiones propias en /settings.'}`);
 if(config.mode==='server')console.log('Modo servidor preparado. Requiere proxy HTTPS para este origen, almacenamiento privado y revisión antes de exponerlo. El proceso escucha solo en loopback.');

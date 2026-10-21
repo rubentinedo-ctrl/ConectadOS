@@ -16,4 +16,12 @@ Lee docs/OPERATIONS.md antes de actualizaciones, recuperación, almacenamiento e
 
 Antes de editar rutas/servidor, lee la documentación instalada en node_modules/next/dist/docs. Verifica typecheck, test y build según el cambio. Las pruebas usan fixtures aisladas; no hacen operaciones sobre proveedores reales por defecto. No presentes una compilación como validación de conexiones o calidad de IA. Para redistribuir binarios revisa docs/DEPENDENCIES.md; no cambies publicationReady por contar avisos.
 
-Esta entrega es RC9, cerrada a funciones nuevas. No publiques el repositorio ni una release por completar la instalación. Registra cada prueba externa por separado. La demostración no requiere APIs; los proveedores, Google y la IA utilizan la configuración propia que el operador decida añadir.
+Esta entrega es RC10, cerrada a funciones nuevas. No publiques otra release por completar una instalación; el repositorio y esta candidata ya son públicos. Registra cada prueba externa por separado. La demostración no requiere APIs; los proveedores, Google y la IA utilizan la configuración propia que el operador decida añadir.
+
+## Alta y conexiones de esta entrega
+
+Antes de instalar, confirma que la terminal pertenece al equipo de destino: macOS local, Linux propio o Ubuntu WSL2. Una VM Linux de Cowork o una sesión remota no valida una instalación nativa de Mac/Windows. No se necesita contratar un agente: el mismo instalador funciona manualmente.
+
+Después de arrancar, si el propietario aún no tiene cuenta y usa Mac o Windows/WSL2 local, ejecuta `npm run setup:code` en una segunda terminal para abrir el archivo en su editor. El propietario copia el código solo en /access. No leas ni imprimas su contenido en el chat o los registros; no generes una contraseña por él. Linux sin escritorio/VPS sigue el procedimiento privado de la guía. Si ya hay cuenta, consérvala.
+
+Presenta GUIA-INSTALACION.html, incluida en la raíz, con el logo, alta y configuración detallada. Solo hay cinco conectores de inventario: Coolify, Vercel, Cloudflare, Hostinger y Supabase Cloud. Hostinger observa un VPS elegido, no sus aplicaciones internas. Netlify, EasyPanel, GoHighLevel y otros se registran como fichas sin API/monitor. Resend, R2, Drive e IA tienen funciones opcionales separadas. No inventes compatibilidad ni actives proveedores por seleccionarlos en un formulario.

@@ -2,6 +2,7 @@
 import {useEffect,useState,type FormEvent} from 'react';
 import {Network,LockKeyhole,LogOut,RefreshCw} from 'lucide-react';
 import {providers} from '@/lib/preview/fixtures';
+import {ConnectionCatalog} from '@/components/ConnectionCatalog';
 import {providerGuides} from '@/lib/provider-guides';
 import {Assistant} from './Assistant';
 import {AccountSecurity} from './AccountSecurity';
@@ -48,12 +49,12 @@ export function PrivateConsole(){
  {tab==='account'&&<><GoogleSettings/><AccountSecurity/></>}
  {tab==='backups'&&<BackupSettings/>}
  {tab==='monitoring'&&<MonitoringSettings/>}
- {tab==='providers'&&<><CoolifyInventory/><ProviderConnections/>
- <section><h2><LockKeyhole size={20}/> Bóveda de proveedores</h2>
- <p className="sub">Elige un servicio para ver qué acceso necesita y dónde obtenerlo. Un token es una clave que crea el proveedor para una aplicación; no es tu contraseña de inicio de sesión.</p>
+ {tab==='providers'&&<><ConnectionCatalog/><CoolifyInventory/><ProviderConnections/>
+ <section><h2><LockKeyhole size={20}/> Guías y accesos guardados</h2>
+ <p className="sub">Los cinco conectores de inventario se configuran arriba. Aquí puedes consultar sus guías; Resend sirve para correo y Drive requiere su instalador independiente. Guardar una clave en la bóveda no crea un conector nuevo.</p>
  <form className="credential-form" onSubmit={add}>
    <label htmlFor="provider">Proveedor</label>
-   <select id="provider" name="provider" value={provider} disabled={busy} onChange={e=>{setProvider(e.target.value);setMessage('')}}>{providers.map(p=><option key={p}>{p}</option>)}</select>
+   <select id="provider" name="provider" value={provider} disabled={busy} onChange={e=>{setProvider(e.target.value);setMessage('')}}>{providers.map(p=><option key={p}>{p}{p==='Resend'?' · correo, sin inventario':p==='Google Drive'?' · respaldo, instalador aparte':' · inventario API'}</option>)}</select>
    <ProviderHelp provider={provider} guide={guide}/>
    {guide.manual&&!['Coolify','Vercel','Cloudflare','Supabase','Hostinger'].includes(provider) ? <div key={provider}>
      <label htmlFor="label">Etiqueta para reconocer este acceso</label>

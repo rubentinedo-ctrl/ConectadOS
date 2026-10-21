@@ -1,10 +1,16 @@
 # ConectadOS
 
+RC10 · descarga pública: [paquete y guía](https://github.com/rubentinedo-ctrl/ConectadOS/releases/tag/v0.1.0-rc.10). Para descargar sin cuenta: `git clone --branch v0.1.0-rc.10 --single-branch https://github.com/rubentinedo-ctrl/ConectadOS.git`.
+
+Abre **GUIA-INSTALACION.html** con doble clic. Incluye el logo de TinergIA, el alta y la configuración de cada proveedor. La instalación y demo no requieren APIs ni un agente de pago. Un agente debe usar una terminal del equipo de destino.
+
+**Inventario API disponible:** Coolify, Vercel, Cloudflare, Hostinger (un VPS elegido) y Supabase Cloud. **Registro manual sin API:** Netlify, EasyPanel, GoHighLevel y otras fichas. Resend sirve para correo; R2/Drive para copias; IA/voz son opcionales y con accesos propios. [Alcance exacto](docs/CONNECTIONS.md).
+
 Panel de infraestructura que puedes alojar en tu computadora o servidor. Explora aplicaciones, bases y dominios en un mapa; consulta Coolify, Cloudflare, Vercel, Hostinger y Supabase; organiza proyectos y revisa observaciones, historial, avisos y costos registrados.
 
 El explorador abre categorías, proveedores y recursos por niveles. Conserva el dashboard de capacidad e historial. Puedes registrar otras plataformas y asociarlas a proyectos; una ficha manual no activa su API. Los informes incluyen análisis, gráficos y explicaciones. Puedes descargar HTML autónomo, PDF directo o Excel con el detalle. Nombres e importes privados se ocultan por defecto al exportar.
 
-**ConectadOS 0.1 RC9 · entrega para prueba externa.** El código propio tiene licencia MIT. Este paquete contiene fuentes y archivos de bloqueo, sin dependencias instaladas, datos, claves ni configuración del autor. No hay todavía un repositorio público anunciado. Consulta [el alcance y sus límites](docs/PRODUCT.md).
+**ConectadOS 0.1 RC10 · entrega para prueba externa.** El código propio tiene licencia MIT. Este paquete contiene fuentes y archivos de bloqueo, sin dependencias instaladas, datos, claves ni configuración del autor. El repositorio y las descargas RC10 son públicos; la aceptación externa sigue pendiente. Consulta [el alcance y sus límites](docs/PRODUCT.md).
 
 Dashboard con métricas de Hostinger y ayudas, mapa por proveedor, alertas con limpieza/reescaneo, chat con contexto de inventario y topes opcionales. [Informes explicados](docs/REPORTS.md) y [verificación de recuperación opcional del host](docs/RECOVERY-CHECKS.md).
 
@@ -23,7 +29,7 @@ Las aplicaciones creadas y sin despliegues registrados tienen su propia [clasifi
 
 Necesitas Node.js 22.16 o posterior con npm y conexión a Internet para descargar dependencias. Las pruebas de esta entrega se registran en [VALIDATION.md](docs/VALIDATION.md); la aceptación en tus dos equipos está pendiente. Para la otra Mac sigue [MACOS.md](docs/MACOS.md). En Windows usa [Ubuntu con WSL2](docs/WINDOWS.md): Node y npm se ejecutan dentro de Linux. La aceptación Windows/WSL2 se confirma con tu prueba; no se incluye instalador .exe.
 
-Puedes descargar y extraer el ZIP o clonar el repositorio cuando se publique en GitHub. No hay aún una URL pública anunciada. Abre esta carpeta en Codex o Claude Code, con su terminal en el mismo sistema donde instalarás, y escribe:
+Puedes descargar y extraer el ZIP o clonar la etiqueta v0.1.0-rc.10 del repositorio público rubentinedo-ctrl/ConectadOS. Abre esta carpeta en Codex, Claude Code o un agente con terminal local como Antigravity, con su terminal en el mismo sistema donde instalarás, y escribe:
 
 > Instala ConectadOS. Lee AGENTS.md y README.md. Revisa requisitos, ejecuta el instalador y valida el arranque. Conserva configuraciones existentes. Empieza con la demostración local sin APIs y deja que yo elija mi contraseña.
 
@@ -39,7 +45,7 @@ Abre `http://127.0.0.1:3119/preview` para explorar la interfaz con datos fictici
 
 ## Tu cuenta y conexiones
 
-En `/access` crea tu cuenta usando el código privado de `.keys/setup-token` y tu propia contraseña. En `/settings`, cada proveedor explica los permisos y enlaza a su página de accesos. Guardar un token no equivale a comprobar la conexión. Google requiere configurar el origen de esta instalación en tu proyecto de Google Cloud; iniciar sesión con Google no autoriza Drive.
+En `/access` crea tu cuenta con tu propia contraseña. En una segunda terminal, `npm run setup:code` abre el código privado en TextEdit (Mac) o Bloc de notas (Ubuntu WSL2), sin imprimirlo. Cópialo solo en la app y cierra el editor sin guardar cambios. En `/settings`, cada proveedor explica los permisos y enlaza a su página de accesos. Guardar un token no equivale a comprobar la conexión. Google requiere configurar el origen de esta instalación en tu proyecto de Google Cloud; iniciar sesión con Google no autoriza Drive.
 
 La demostración no consulta cuentas. El mapa real requiere conexiones autorizadas; una observación puede estar vencida o cubrir solo parte de un servicio. La aplicación no garantiza la disponibilidad de tus aplicaciones ni administra automáticamente sus bases de datos.
 

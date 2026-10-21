@@ -1,9 +1,9 @@
 {
   "name": "conectados",
-  "version": "0.1.0-rc.9",
+  "version": "0.1.0-rc.10",
   "private": true,
   "license": "MIT",
-  "description": "Panel de infraestructura autohospedado — candidato para prueba externa",
+  "description": "Panel de infraestructura autohospedado \u2014 candidato para prueba externa",
   "scripts": {
     "setup": "node scripts/setup.mjs",
     "doctor": "node scripts/doctor.mjs",
@@ -17,7 +17,8 @@
     "backup": "node scripts/backup.mjs",
     "restore": "node scripts/restore.mjs",
     "collector": "node scripts/collector.mjs",
-    "observer:backup": "node scripts/observer-export.mjs"
+    "observer:backup": "node scripts/observer-export.mjs",
+    "setup:code": "node scripts/open-setup-code.mjs"
   },
   "engines": {
     "node": ">=22.16.0"

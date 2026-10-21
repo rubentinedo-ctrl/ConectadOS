@@ -18,7 +18,7 @@ Usa Ubuntu en WSL2 y ejecuta Node/npm dentro de Linux. Consulta [WINDOWS.md](WIN
 
 ## Otra Mac
 
-Sigue [MACOS.md](MACOS.md), anota Apple Silicon o Intel y empieza en una carpeta nueva con el mismo ZIP RC9 que usarás en Windows. No se trasladan datos ni claves de la instalación del autor.
+Sigue [MACOS.md](MACOS.md), anota Apple Silicon o Intel y empieza en una carpeta nueva con el mismo ZIP RC10 que usarás en Windows. No se trasladan datos ni claves de la instalación del autor.
 
 ## Con un agente
 
@@ -40,9 +40,9 @@ Para una carpeta nueva con el puerto ocupado: `node scripts/install.mjs --apply 
 
 ## Crear tu cuenta
 
-Abre `/access`. Usa el código del archivo privado `.keys/setup-token` y elige una contraseña de al menos 15 caracteres. No pegues el código, la contraseña ni tokens en el chat de un agente. Una instalación existente conserva su cuenta; no necesita otra.
+Abre `/access`. Deja el lanzador funcionando y abre otra terminal en la misma carpeta. Ejecuta `npm run setup:code`: abre TextEdit en Mac o Bloc de notas desde Ubuntu WSL2. Copia el código únicamente en el formulario y cierra el editor sin modificar el archivo. Elige una contraseña de al menos 15 caracteres. Si no se abre el editor, la guía HTML explica cómo encontrar `.keys/setup-token` en Finder o el Explorador. Linux sin escritorio/VPS requiere abrir el archivo por un procedimiento privado. No pegues el código, la contraseña ni tokens en el chat de un agente. Una instalación existente conserva su cuenta; no necesita otra.
 
-La configuración de proveedores está en `/settings`. Cada proveedor muestra permisos, instrucciones y enlaces oficiales. Guarda el acceso y comprueba que aparezca un inventario con fecha reciente. El inicio con Google se configura para el origen de tu propia instalación; no autoriza Google Drive.
+La configuración de proveedores está en `/settings`. Los cinco conectores de inventario disponibles son Coolify, Vercel, Cloudflare, Hostinger y Supabase Cloud. [CONNECTIONS.md](CONNECTIONS.md) distingue inventario, registro manual y funciones opcionales. Cada proveedor muestra permisos, instrucciones y enlaces oficiales. Guarda el acceso y comprueba que aparezca un inventario con fecha reciente. El inicio con Google se configura para el origen de tu propia instalación; no autoriza Google Drive.
 
 ## IA, voz y costos
 
@@ -58,7 +58,7 @@ Antes de actualizar, conserva una copia y sus claves fuera del equipo. No borres
 
 Sigue [deploy/README.md](../deploy/README.md). Usa un dominio HTTPS, proxy revisado y volúmenes independientes. El puerto 3000 es interno y no se publica directamente. La cuenta y los accesos se configuran después del despliegue. No transfieras una instalación ajena ni incluyas credenciales en una imagen o repositorio.
 
-La publicación del repositorio y el paquete público se anuncia solo después de validar su contenido, licencias y capacidades. No existe todavía una URL pública de descarga.
+La publicación del repositorio y el paquete público se anuncia solo después de validar su contenido, licencias y capacidades. Descarga pública: https://github.com/rubentinedo-ctrl/ConectadOS/releases/tag/v0.1.0-rc.10.
 
 ## Prueba y documentación de la entrega
 

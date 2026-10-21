@@ -1,6 +1,6 @@
 # Instalar desde Windows con WSL2
 
-ConectadOS 0.1 RC9 usa Node dentro de Ubuntu, mediante WSL2. No incluye un instalador .exe ni una instalación nativa de Windows. El recorrido Linux está probado; la prueba en tu equipo Windows forma parte de la aceptación externa de esta entrega.
+ConectadOS 0.1 RC10 usa Node dentro de Ubuntu, mediante WSL2. No incluye un instalador .exe ni una instalación nativa de Windows. El recorrido Linux está probado; la prueba en tu equipo Windows forma parte de la aceptación externa de esta entrega.
 
 ## 1. Preparar Ubuntu
 
@@ -52,3 +52,7 @@ Detén con Ctrl+C. Para volver: abre Ubuntu, entra en `~/ConectadOS` y ejecuta `
 ## 5. Prueba externa
 
 Completa [PRUEBA-EXTERNA.md](PRUEBA-EXTERNA.md). Primero demuestra que instalación, mapa ficticio, cuenta y reinicio funcionan. Después conecta un proveedor propio y comprueba inventario y fecha. Google, IA, voz y respaldos son opcionales y requieren su configuración independiente. No publiques el paquete como validado en Windows antes de completar este recorrido.
+
+## Abrir el código inicial
+
+Con el lanzador funcionando, abre otra terminal en esta carpeta y ejecuta `npm run setup:code`. En Mac se abre TextEdit; desde Ubuntu WSL2, Bloc de notas de Windows. Copia el código solo en /access y cierra el editor sin guardar cambios. Si el entorno no puede abrir ventanas, sigue GUIA-INSTALACION.html → Tu cuenta. El código no se imprime en la terminal. No lo compartas con el agente.

@@ -8,6 +8,10 @@ El estado declarado por el proveedor no prueba transacciones. Un informe de rest
 
 La instalación privada del autor comprobó conexiones reales, Google, avisos, IA OpenAI y recuperación del panel; esos accesos no se incluyen. La voz con interrupción fue aceptada en el entorno del operador; una instalación nueva debe comprobar su propio micrófono. Una instalación nueva debe validar sus propias claves, Google/Drive y efectos. Los demás motores comerciales tienen pruebas de contratos, sin respuesta real acreditada aquí. El modelo local pequeño ensayado no pasó calidad y no se habilita automáticamente.
 
-Fuentes MIT para instalación y prueba privada antes de ofrecerlas; sin estado, secretos ni binarios instalados. La publicación requiere la revisión final del propietario. macOS arm64 y Linux amd64 tienen recorridos de instalación; Windows usa Ubuntu en WSL2; su recorrido externo todavía debe completarse y no se ofrece instalación nativa Windows. Las marcas/dependencias mantienen sus condiciones. Redistribuir una imagen binaria exige su revisión específica.
+Fuentes MIT públicas para instalación y prueba antes de ofrecerlas; sin estado, secretos ni binarios instalados. La aceptación final requiere la revisión del propietario. macOS arm64 y Linux amd64 tienen recorridos de instalación; Windows usa Ubuntu en WSL2; su recorrido externo todavía debe completarse y no se ofrece instalación nativa Windows. Las marcas/dependencias mantienen sus condiciones. Redistribuir una imagen binaria exige su revisión específica.
 
 El alcance de 0.1 queda congelado en [RELEASE.md](RELEASE.md). La instalación externa se sigue en [PRUEBA-EXTERNA.md](PRUEBA-EXTERNA.md) y [WINDOWS.md](WINDOWS.md). OAuth visual de Drive, retención ejecutable y mantenimiento avanzado se aplazan a otra versión.
+
+## Compatibilidad de conexiones
+
+Consulta [CONNECTIONS.md](CONNECTIONS.md). Cinco inventarios API: Coolify, Vercel, Cloudflare, Hostinger (un VPS) y Supabase Cloud. Netlify, EasyPanel y otras herramientas son fichas manuales sin API ni monitor. No se descubre toda la infraestructura de una cuenta por conectar un proveedor. Correo, copias e IA son opcionales y se configuran por separado.

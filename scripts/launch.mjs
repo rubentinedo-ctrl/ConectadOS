@@ -7,7 +7,8 @@ import path from 'node:path';
 const code=fileURLToPath(new URL('../',import.meta.url)),root=process.env.CONECTADOS_ROOT||code;
 try {
  if(!path.isAbsolute(root))throw new Error('La carpeta de estado debe ser una ruta absoluta.');
- const config=await readConfig(root);if(config.host!=='127.0.0.1')throw new Error('Usa el lanzador Docker para un listener interno de contenedor.');const db=new Store(root);db.close();
+ const config=await readConfig(root);if(config.host!=='127.0.0.1')throw new Error('Usa el lanzador Docker para un listener interno de contenedor.');const db=new Store(root);const hasOwner=db.hasOwner();db.close();
+ console.log('ConectadOS · '+(hasOwner?'entra con tu cuenta':'crea tu cuenta en /access; abre el código con npm run setup:code')+'\nGuía visual incluida: GUIA-INSTALACION.html. Configura tus conexiones en /settings.');
  if(!existsSync(path.join(code,'.next/standalone/server.js'))||!existsSync(path.join(code,'.next/standalone/.next/static')))throw new Error('Falta el paquete compilado: ejecuta npm run build.');
  const env={...process.env,CONECTADOS_ROOT:root,HOSTNAME:config.host,PORT:String(config.port),NEXT_TELEMETRY_DISABLED:'1'};
  const child=spawn(process.execPath,[path.join(code,'.next/standalone/server.js')],{cwd:code,env,stdio:'inherit'});

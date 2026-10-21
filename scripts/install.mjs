@@ -3,6 +3,7 @@ import {readFile,lstat} from 'node:fs/promises';
 import {createServer} from 'node:net';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
+import {inventoryConnectors} from '../lib/connection-catalog.mjs';
 import {setupArgs,readConfig,installationOrigin} from './config.mjs';
 
 export function installerArgs(args){
@@ -40,9 +41,10 @@ async function command(root,program,args,label){
 }
 export async function install(root,args){
  const [major,minor]=process.versions.node.split('.').map(Number);if(major<22||major===22&&minor<16)throw Error('Instala Node.js 22.16 o posterior desde https://nodejs.org/en/download.');
- if(!['darwin','linux'].includes(process.platform))throw Error('Este recorrido está preparado para macOS y Linux. Windows todavía no está validado.');
+ if(!['darwin','linux'].includes(process.platform))throw Error('Este recorrido está preparado para macOS y Linux. En Windows abre Ubuntu WSL2 y ejecuta allí Git, Node y npm; no uses Node de Windows.');
  const plan=await installationPlan(root,args);
  console.log(`ConectadOS · ${plan.existing?'instalación existente conservada':'instalación nueva'}\nCarpeta: ${root}\nDirección: ${plan.origin}\nPasos: requisitos, dependencias del lock, preparación, diagnóstico y compilación.\nLas conexiones y la IA se configuran después con tus propios accesos.`);
+ console.log(`Conectores de inventario disponibles: ${inventoryConnectors.map(p=>p.name).join(', ')}.\nNetlify, EasyPanel y otras plataformas: solo fichas manuales, sin consulta API. Hostinger no descubre las aplicaciones del VPS.\nGuía con logo y configuración paso a paso: GUIA-INSTALACION.html (abre con doble clic).`);
  if(plan.preferences)console.log('Preferencias del plan validadas. No se usan como órdenes ni permisos de acceso.');
  if(!args.apply){console.log('Revisión sin cambios. Añade --apply para instalar.');return plan;}
  await assertPortAvailable(plan.target.host,plan.target.port);
@@ -52,7 +54,7 @@ export async function install(root,args){
  await command(root,process.execPath,['scripts/setup.mjs',...plan.setup],'3/5 · Preparar sin reemplazar cuenta ni claves');
  await command(root,process.execPath,['scripts/doctor.mjs'],'4/5 · Diagnóstico');
  await command(root,'npm',['run','build'],'5/5 · Compilar');
- console.log(`\nPreparada. Inicia con npm start y abre ${plan.origin}${plan.target.mode==='demo'?'/demo':''}.\nLa primera cuenta se crea en /access con tu contraseña y el código privado de .keys/setup-token. No lo pegues en un chat.\nPara detener: Ctrl+C. Para volver a iniciar: npm start.\nGuía: docs/GETTING-STARTED.md.`);
+ console.log(`\nPreparada. Inicia con npm start y abre ${plan.origin}${plan.target.mode==='demo'?'/demo':''}.\nCrea tu cuenta en ${plan.origin}/access. Para abrir el código en un editor local, usa otra terminal en esta carpeta: npm run setup:code (Mac o Windows/WSL2). No muestra el código en la terminal.\nEl archivo privado es .keys/setup-token. Pega el código solo en la aplicación; elige allí tu contraseña. Si ya tienes cuenta, consérvala.\nPara detener: Ctrl+C. Para volver a iniciar: npm start.\nGuía visual: GUIA-INSTALACION.html. Guía de texto: docs/GETTING-STARTED.md.`);
  if(plan.target.mode==='server')console.log('Antes de usar el origen público, el agente debe comprobar el proxy HTTPS y sus permisos. Este comando no configura DNS ni publica puertos.');
  return plan;
 }

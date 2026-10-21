@@ -1,8 +1,10 @@
-# ConectadOS 0.1 RC9
+# ConectadOS 0.1 RC10
 
-Entrega de fuentes para prueba externa. El alcance de esta versión queda cerrado; la publicación y el resultado Windows/WSL2 se confirman después de la prueba del propietario.
+Entrega de fuentes para prueba externa. El alcance de esta versión queda cerrado; la aceptación final y el resultado Windows/WSL2 se confirman después de la prueba del propietario; el repositorio es público para facilitarla.
 
-## Actualización RC9 · 20 de octubre de 2026
+## Actualización RC10 · 20 de octubre de 2026
+
+Alta con instrucciones desplegables y comando `npm run setup:code` para abrir el archivo en un editor local. Catálogo al crear la cuenta, en el Dashboard vacío y en Ajustes: cinco conectores API frente a registros manuales. Guía HTML TinergIA incluida con configuración por proveedor y funciones opcionales separadas. Sin conectores ni funciones operativas nuevos. Las capacidades siguientes se conservan de RC9.
 
 Incluye las mejoras ya implementadas: dashboard con métricas Hostinger y ayudas; carga completa del inventario por proveedor; agrupaciones por aplicación; alertas con retiro/reescaneo y política de correo; webchat con contexto de inventario, formato legible y topes voluntarios; vista de respaldos y verificación de recuperación mediante ejecutor opcional del host; seis informes analizados HTML/PDF y detalle Excel. No se añaden funciones para cerrar esta entrega.
 
@@ -28,6 +30,6 @@ Estas mejoras no bloquean la prueba y entrega de 0.1.
 
 ## Alcance comprobado y costos
 
-Los resultados del ZIP RC9 exacto se detallan en [VALIDATION.md](VALIDATION.md). Los ensayos anteriores en macOS arm64 y Ubuntu amd64 no sustituyen la prueba externa de este candidato. Voz real con interrupción aceptada en el entorno del operador. Instalador Drive real en Ubuntu con cliente propio drive.file, copia nueva programada, recuperación en otro equipo y repetición sin duplicados. La ejecución Windows/WSL2 queda pendiente de la prueba externa; no se ofrece ejecutable nativo Windows. Otros modelos comerciales conservan sus pruebas específicas; no se atribuye a todos una prueba hecha con OpenAI.
+Los resultados del ZIP RC10 exacto se detallan en [VALIDATION.md](VALIDATION.md). Los ensayos anteriores en macOS arm64 y Ubuntu amd64 no sustituyen la prueba externa de este candidato. Voz real con interrupción aceptada en el entorno del operador. Instalador Drive real en Ubuntu con cliente propio drive.file, copia nueva programada, recuperación en otro equipo y repetición sin duplicados. La ejecución Windows/WSL2 queda pendiente de la prueba externa; no se ofrece ejecutable nativo Windows. Otros modelos comerciales conservan sus pruebas específicas; no se atribuye a todos una prueba hecha con OpenAI.
 
 Código propio MIT. El paquete no incluye datos, credenciales, dependencias instaladas ni imágenes Docker. Hosting, almacenamiento, correo y modelos pueden tener costos propios. Google, proveedores y API de IA se configuran en cada instalación. La recuperación por correo es opcional y se activa después de comprobar recepción; existe recuperación offline documentada. Revisa DEPENDENCIES.md antes de redistribuir binarios.
