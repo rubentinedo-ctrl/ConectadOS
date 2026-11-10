@@ -17,8 +17,8 @@
     },
     {
       "file": "Dockerfile",
-      "bytes": 1413,
-      "sha256": "cfcd6c04d62d5ab7b85069ca7630681273ce934ed3ec3b1686c9f6c3274e3559"
+      "bytes": 1560,
+      "sha256": "0d7b7bf395b68e27bdd17701e7b3a3b32546902d12899763fc10b0b351aa2ce9"
     },
     {
       "file": "LICENSE",
@@ -738,12 +738,12 @@
     {
       "file": "AGENTS.md",
       "bytes": 4483,
-      "sha256": "95c96013091aff3087184bdfa188ee1be2d8406b642ab01570bc5d116cc054ae"
+      "sha256": "928c253d1cae92b724295cf9b30c34c957f9de27dfcbc8af570efb7ebf328963"
     },
     {
       "file": "distribution/AGENTS.md",
       "bytes": 4483,
-      "sha256": "95c96013091aff3087184bdfa188ee1be2d8406b642ab01570bc5d116cc054ae"
+      "sha256": "928c253d1cae92b724295cf9b30c34c957f9de27dfcbc8af570efb7ebf328963"
     },
     {
       "file": "CLAUDE.md",
@@ -757,23 +757,23 @@
     },
     {
       "file": "GUIA-INSTALACION.html",
-      "bytes": 69531,
-      "sha256": "7faa8a011e2ce8f949813b66f513622b596b745dde7b7a3af63081d7e7979b2f"
+      "bytes": 69580,
+      "sha256": "5259d568eb341f1b1057c14d9f3321d603c41b19b4b691659d78499efe7cc5ce"
     },
     {
       "file": "distribution/GUIA-INSTALACION.html",
-      "bytes": 69531,
-      "sha256": "7faa8a011e2ce8f949813b66f513622b596b745dde7b7a3af63081d7e7979b2f"
+      "bytes": 69580,
+      "sha256": "5259d568eb341f1b1057c14d9f3321d603c41b19b4b691659d78499efe7cc5ce"
     },
     {
       "file": "README.md",
-      "bytes": 8156,
-      "sha256": "c91bc1ef5d2cea7b7ddb03c0be4972a07f6d20b077420107e7f9aff7f648b027"
+      "bytes": 8279,
+      "sha256": "50de8dbc81e26672dcba187ce7c2b7541683160a52dcd16fa6ccbbfa3b3b99d1"
     },
     {
       "file": "distribution/README.md",
-      "bytes": 8156,
-      "sha256": "c91bc1ef5d2cea7b7ddb03c0be4972a07f6d20b077420107e7f9aff7f648b027"
+      "bytes": 8279,
+      "sha256": "50de8dbc81e26672dcba187ce7c2b7541683160a52dcd16fa6ccbbfa3b3b99d1"
     },
     {
       "file": "deploy/README.md",
@@ -837,13 +837,13 @@
     },
     {
       "file": "docs/CONTINUAR-PRUEBAS.md",
-      "bytes": 3378,
-      "sha256": "f855f17236183b03d7993a17a9d42aa2ac92b47ef1305a333bc7cd676bda72c6"
+      "bytes": 5532,
+      "sha256": "1b66ebebf7d252e52036ece552b4b7518a31ab5937aa6c98e458e78ed0f910c3"
     },
     {
       "file": "distribution/docs/CONTINUAR-PRUEBAS.md",
-      "bytes": 3378,
-      "sha256": "f855f17236183b03d7993a17a9d42aa2ac92b47ef1305a333bc7cd676bda72c6"
+      "bytes": 5532,
+      "sha256": "1b66ebebf7d252e52036ece552b4b7518a31ab5937aa6c98e458e78ed0f910c3"
     },
     {
       "file": "docs/DEPENDENCIES.md",
@@ -888,12 +888,12 @@
     {
       "file": "docs/GETTING-STARTED.md",
       "bytes": 6721,
-      "sha256": "d72ff8575ca03b5e804778b367890cff62e64085d407a6de14a524e37d9cd90b"
+      "sha256": "b15f69f5484002d695e7983b29b8fdc20258d2053a8c547fba3b76d99069d6c0"
     },
     {
       "file": "distribution/docs/GETTING-STARTED.md",
       "bytes": 6721,
-      "sha256": "d72ff8575ca03b5e804778b367890cff62e64085d407a6de14a524e37d9cd90b"
+      "sha256": "b15f69f5484002d695e7983b29b8fdc20258d2053a8c547fba3b76d99069d6c0"
     },
     {
       "file": "docs/INSTALL-DRIVE.md",
@@ -918,12 +918,12 @@
     {
       "file": "docs/MACOS.md",
       "bytes": 3584,
-      "sha256": "ea789415dde2f66b623c7a479a1105a5a527586e354be8e2a68aaa0826c1d851"
+      "sha256": "83a8aebcc1f6560180463050c098a399e45197c3462226b011fb12902f378cba"
     },
     {
       "file": "distribution/docs/MACOS.md",
       "bytes": 3584,
-      "sha256": "ea789415dde2f66b623c7a479a1105a5a527586e354be8e2a68aaa0826c1d851"
+      "sha256": "83a8aebcc1f6560180463050c098a399e45197c3462226b011fb12902f378cba"
     },
     {
       "file": "docs/OPERATIONS.md",
@@ -948,12 +948,12 @@
     {
       "file": "docs/PRUEBA-EXTERNA.md",
       "bytes": 3479,
-      "sha256": "7b48fbec920246e160d3972af7141b3952b61b49ea3508bc924f1ccd68db8171"
+      "sha256": "be5d7b240a07effdc2779540e0c84ea6da60681c9727306b616cd8be62fd1d96"
     },
     {
       "file": "distribution/docs/PRUEBA-EXTERNA.md",
       "bytes": 3479,
-      "sha256": "7b48fbec920246e160d3972af7141b3952b61b49ea3508bc924f1ccd68db8171"
+      "sha256": "be5d7b240a07effdc2779540e0c84ea6da60681c9727306b616cd8be62fd1d96"
     },
     {
       "file": "docs/REALTIME-VOICE.md",
@@ -977,13 +977,13 @@
     },
     {
       "file": "docs/RELEASE.md",
-      "bytes": 4959,
-      "sha256": "02c3663cec0e4efad28229bf13b47a8db466e34e40a67135202d158676d1acb2"
+      "bytes": 5312,
+      "sha256": "d0b8f2993d7554db2cdc5a5a52150fd0cba32703e71e222faf8a21f921dfb22f"
     },
     {
       "file": "distribution/docs/RELEASE.md",
-      "bytes": 4959,
-      "sha256": "02c3663cec0e4efad28229bf13b47a8db466e34e40a67135202d158676d1acb2"
+      "bytes": 5312,
+      "sha256": "d0b8f2993d7554db2cdc5a5a52150fd0cba32703e71e222faf8a21f921dfb22f"
     },
     {
       "file": "docs/REPORTS.md",
@@ -1016,14 +1016,34 @@
       "sha256": "c503d35ad7c11bb9d17d6a0f9dc3b0ffe396f4cf5a01caf899a94d8174728b5d"
     },
     {
-      "file": "docs/VALIDATION.md",
+      "file": "docs/SECURITY-RC13.md",
+      "bytes": 1092,
+      "sha256": "cbfd85a4e006eb80b60c799b1ac4825e1d233d74cf13a84721942ff1a7a4d0c2"
+    },
+    {
+      "file": "distribution/docs/SECURITY-RC13.md",
+      "bytes": 1092,
+      "sha256": "cbfd85a4e006eb80b60c799b1ac4825e1d233d74cf13a84721942ff1a7a4d0c2"
+    },
+    {
+      "file": "docs/VALIDATION-RC12.md",
       "bytes": 2211,
       "sha256": "e49d11bb62dbcc4d7619533aacba4fadc8dfdee1553859093939d64b291e5e6e"
     },
     {
-      "file": "distribution/docs/VALIDATION.md",
+      "file": "distribution/docs/VALIDATION-RC12.md",
       "bytes": 2211,
       "sha256": "e49d11bb62dbcc4d7619533aacba4fadc8dfdee1553859093939d64b291e5e6e"
+    },
+    {
+      "file": "docs/VALIDATION.md",
+      "bytes": 2359,
+      "sha256": "57e62f29fd97a718bccea0b80c78d3426b403df44b93a9cf656bfbda11ea9332"
+    },
+    {
+      "file": "distribution/docs/VALIDATION.md",
+      "bytes": 2359,
+      "sha256": "57e62f29fd97a718bccea0b80c78d3426b403df44b93a9cf656bfbda11ea9332"
     },
     {
       "file": "docs/WELCOME.md",
@@ -1038,12 +1058,12 @@
     {
       "file": "docs/WINDOWS.md",
       "bytes": 5158,
-      "sha256": "a6209d184d5e3310c779a6293d8424ab166a0535ec1f4c8e684210a8878ab04c"
+      "sha256": "a446b2d721aeca729c071d4254d2d251102cbab60e7a72ae99e0aff9fbf1bf81"
     },
     {
       "file": "distribution/docs/WINDOWS.md",
       "bytes": 5158,
-      "sha256": "a6209d184d5e3310c779a6293d8424ab166a0535ec1f4c8e684210a8878ab04c"
+      "sha256": "a446b2d721aeca729c071d4254d2d251102cbab60e7a72ae99e0aff9fbf1bf81"
     },
     {
       "file": "docs/BRAND-ASSETS.md",
@@ -2388,12 +2408,12 @@
     {
       "file": "package-lock.json",
       "bytes": 67644,
-      "sha256": "083d2a6525613e95354f1de9e6e3b4913a9f624021f8b5c5e3e28c750e8da550"
+      "sha256": "0230d5725417f316dda50cc86a1e27339b8227de6a1f9b7ba41ab2d3b1376be0"
     },
     {
       "file": "package.json",
-      "bytes": 1507,
-      "sha256": "39db59ddd274a74b7ca208791bdee2bb945f6529e6f27975e6b60aad8b977bc3"
+      "bytes": 1504,
+      "sha256": "a4567fafc66e006f4b2cae2ad9803c8b3cd024afdce91d512a33370ef708157d"
     },
     {
       "file": "proxy.ts",

@@ -1,9 +1,9 @@
 {
   "name": "conectados",
-  "version": "0.1.0-rc.12",
+  "version": "0.1.0-rc.13",
   "private": true,
   "license": "MIT",
-  "description": "Panel de infraestructura autohospedado \u2014 candidato para prueba externa",
+  "description": "Panel de infraestructura autohospedado — candidato para prueba externa",
   "scripts": {
     "setup": "node scripts/setup.mjs",
     "doctor": "node scripts/doctor.mjs",
@@ -31,7 +31,7 @@
     "ai": "^7.0.137",
     "google-auth-library": "^11.2.0",
     "lucide-react": "^1.7.0",
-    "next": "16.4.0",
+    "next": "16.4.6",
     "next-themes": "^0.4.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",

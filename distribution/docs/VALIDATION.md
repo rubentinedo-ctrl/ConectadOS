@@ -1,19 +1,22 @@
-# ConectadOS RC12 · validación del asistente de bienvenida
+# ConectadOS RC13 · comprobaciones de la candidata
 
-21 de octubre de 2026. RC12 añade el asistente opcional de conexión inicial y conserva los cinco conectores de RC11. El instalador y las dependencias no cambian.
+9 de noviembre de 2026, America/New_York; ejecución que terminó el 10 de noviembre en UTC. Entrega de fuentes MIT para pruebas externas. RC13 conserva las funciones de RC12 y el formato de estado 1. Actualiza Next.js a 16.4.6 y undici a 7.30.2. Consulta SECURITY-RC13.md.
 
-## Comprobado
+| Comprobación | Resultado |
+| --- | --- |
+| Instalación del lock | npm ci correcto; auditoría sin vulnerabilidades conocidas en la consulta realizada |
+| TypeScript | npm run typecheck correcto |
+| Pruebas Node | 371 aprobadas, 0 fallidas |
+| Compilación | npm run build correcto, Node 22.23.1, Linux amd64 nativo |
+| Batería HTTP | Aprobada en copia ficticia aislada, sin red: cuenta, origen, cookies, bienvenida, configuración cifrada, informes, persistencia, recuperación y cierre de sesión |
+| Actualización y retorno | Versión anterior → RC13 → anterior → RC13 sobre el mismo estado ficticio; conserva cambios posteriores, contraseña, configuración y progreso de bienvenida |
+| Recuperación | Copia coherente comprobada con RC13 en destino aislado, sin modificar el origen; efectos externos y sesiones desactivados en la copia |
+| Piloto existente | RC13 publicada; cuenta, accesos, proyectos, configuración y volúmenes conservados. Exportador Drive y ejecutor de recuperación continúan con sus recibos y calendarios |
+| Funciones | Sin cambios en app, components, lib, scripts o public frente a RC12 |
+| Distribución | Fuentes y lock, sin estado, secretos, dependencias instaladas ni imágenes Docker; guía HTML incluida |
+| Windows/WSL2 | Pendiente de prueba en el Windows real del propietario; Linux en un VPS no la sustituye |
+| Otra Mac | Instalación previa confirmada por el propietario; aceptación de esta RC13 pendiente en ese equipo |
 
-- 371 pruebas Node correctas, incluidas selección, pasos, posponer, conflictos entre pestañas, rechazo de campos de secretos y finalización condicionada a lecturas recientes.
-- TypeScript, build y batería HTTP aislada correctos: acceso y origen protegidos, progreso persistente después de reiniciar, sin consultas externas.
-- Progreso conservado al reabrir SQLite y recuperar una copia local del estado. Cambiar preferencias no lo borra. Tabla adicional compatible con el formato de estado actual; no contiene credenciales.
-- Recorrido en Chrome con cuenta ficticia: apertura automática, selección de plataformas, enlaces oficiales, formularios, resumen pendiente, posponer y retomar tras recargar/reiniciar, y apertura desde Ajustes. El resumen no permite declarar completas conexiones que no se consultaron.
-- Formularios existentes reutilizados. Tokens en la bóveda cifrada; campos sin guardar no se conservan como borradores. No se crean conectores nuevos ni se activa observación, IA, correo o respaldo desde el asistente.
+Las pruebas locales no consumieron APIs de IA ni enviaron correo. No activaron proveedores reales en las copias. El estado observado de servicios externos no demuestra sus operaciones de negocio. Una auditoría sin avisos conocidos no garantiza ausencia de vulnerabilidades.
 
-## Límites de estas pruebas
-
-Las pruebas usan datos ficticios y no sustituyen una conexión nueva a cada cuenta del usuario. No se realizaron llamadas reales a proveedores, envíos de correo ni consumo de IA. No se modificó el VPS ni su aplicación instalada.
-
-El instalador no cambió desde RC10: se conservan sus ensayos de instalación del ZIP en Mac arm64 y Ubuntu amd64. RC11 conservó cuenta/proyecto/credencial cifrada en actualización desde RC10. Windows/WSL2 sigue pendiente de la prueba externa del usuario; no se ofrece ejecutable Windows nativo. El propietario ya confirmó una instalación Mac, pero debe actualizar su versión para ver el asistente.
-
-La guía HTML con logo incluye el nuevo recorrido y cómo continuar después. El paquete público excluye estado, credenciales, dependencias instaladas e historia privada. La entrega conserva manifiesto y archivo SHA-256. RC9, RC10 y RC11 permanecen disponibles.
+El historial de RC12 se conserva en VALIDATION-RC12.md. Completa PRUEBA-EXTERNA.md antes de declarar aceptada esta candidata. La voz con micrófono y los proveedores propios se prueban solo si el propietario los configura; no se atribuye a RC13 una nueva prueba de voz humana.

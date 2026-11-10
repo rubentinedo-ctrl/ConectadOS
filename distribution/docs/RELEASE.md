@@ -1,6 +1,10 @@
-# ConectadOS 0.1 RC12
+# ConectadOS 0.1 RC13
 
 Entrega de fuentes para prueba externa. El alcance de esta versión queda cerrado; la aceptación final y el resultado Windows/WSL2 se confirman después de la prueba del propietario; el repositorio es público para facilitarla.
+
+## RC13 · mantenimiento de seguridad · 9 de noviembre de 2026
+
+Actualiza Next.js de 16.4.0 a 16.4.6 y la dependencia de conexión undici a 7.30.2 dentro de su rama compatible. Conserva las funciones y el formato de estado de RC12. No añade conectores, costes, permisos ni automatizaciones. Las pruebas Windows/WSL2 siguen pendientes de la instalación externa.
 
 ## Actualización RC12 · 21 de octubre de 2026
 
@@ -34,6 +38,6 @@ Estas mejoras no bloquean la prueba y entrega de 0.1.
 
 ## Alcance comprobado y costos
 
-Los resultados del ZIP RC12 exacto se detallan en [VALIDATION.md](VALIDATION.md). Los ensayos anteriores en macOS arm64 y Ubuntu amd64 no sustituyen la prueba externa de este candidato. Voz real con interrupción aceptada en el entorno del operador. Instalador Drive real en Ubuntu con cliente propio drive.file, copia nueva programada, recuperación en otro equipo y repetición sin duplicados. La ejecución Windows/WSL2 queda pendiente de la prueba externa; no se ofrece ejecutable nativo Windows. Otros modelos comerciales conservan sus pruebas específicas; no se atribuye a todos una prueba hecha con OpenAI.
+Los resultados de RC13 se detallan en [VALIDATION.md](VALIDATION.md). Los ensayos anteriores en macOS arm64 y Ubuntu amd64 no sustituyen la prueba externa de este candidato. Voz real con interrupción aceptada en el entorno del operador. Instalador Drive real en Ubuntu con cliente propio drive.file, copia nueva programada, recuperación en otro equipo y repetición sin duplicados. La ejecución Windows/WSL2 queda pendiente de la prueba externa; no se ofrece ejecutable nativo Windows. Otros modelos comerciales conservan sus pruebas específicas; no se atribuye a todos una prueba hecha con OpenAI.
 
 Código propio MIT. El paquete no incluye datos, credenciales, dependencias instaladas ni imágenes Docker. Hosting, almacenamiento, correo y modelos pueden tener costos propios. Google, proveedores y API de IA se configuran en cada instalación. La recuperación por correo es opcional y se activa después de comprobar recepción; existe recuperación offline documentada. Revisa DEPENDENCIES.md antes de redistribuir binarios.
